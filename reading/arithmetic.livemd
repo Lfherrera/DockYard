@@ -97,10 +97,8 @@ in Elixir are unbounded, meaning they have no maximum size.
 Contrast that with a language like JavaScript which has a maximum safe integer size of `9007199254740991`.
 Elixir makes that look tiny!
 
-<!-- livebook:{"attrs":{"code":"biggest_integer = 1","source":"Kino.Markdown.new(~s(\ninteger: #{biggest_integer}\\n\ndigits: #{biggest_integer |> Integer.digits() |> Enum.count()}\n))","title":"Biggest Integer Visual"},"chunks":null,"kind":"Elixir.Visual","livebook_object":"smart_cell"} -->
-
 ```elixir
-biggest_integer = 1
+biggest_integer = 952_616_584_621
 Kino.Markdown.new(~s(
 integer: #{biggest_integer}\n
 digits: #{biggest_integer |> Integer.digits() |> Enum.count()}
@@ -111,8 +109,6 @@ You can see unbounded integers in action in the following animation. Watch how t
 grows! Move on to the next section when you're satisfied that integers are truly unbounded.
 
 To avoid distorting your screen we use mathematical notation $10^{n}$ after 80 digits.
-
-<!-- livebook:{"attrs":{"source":"SmartAnimation.new(1..100_000_000, fn i ->\n  max = 10 ** 80\n  integer_display = (10 ** i < max && 10 ** i) || \"$10^{#{i}}$\"\n\n  Kino.Markdown.new(\"\"\"\n  integer: #{integer_display}\\n\n  digits: #{Integer.digits(10 ** i) |> Enum.count()}\n  \"\"\")\nend)","title":"Animation Source: (Hidden: instructors Only)"},"chunks":null,"kind":"Elixir.HiddenCell","livebook_object":"smart_cell"} -->
 
 ```elixir
 SmartAnimation.new(1..100_000_000, fn i ->
@@ -166,10 +162,10 @@ For example, you might want to represent a progress bar as a percentage.
 In the Elixir cell below, try changing the float `percentage` to any float between `0.0` and `100.0`
 and see how the loading bar changes! Replace `50.0` with your answer and reevaluate the cell.
 
-<!-- livebook:{"attrs":{"code":"percentage = 50.0","source":"Kino.Markdown.new(~s(\n  <div style=\\\"height: 20px; width: 100%; background-color: grey\\\">\n  <div style=\\\"height: 20px; width: #{percentage}%; background-color: green; color: white;\\\">#{percentage}%</div>\n  </div>\n))","title":"Loading Bar Visual"},"chunks":null,"kind":"Elixir.Visual","livebook_object":"smart_cell"} -->
+<!-- livebook:{"attrs":{"code":"percentage = 82.03212315","source":"Kino.Markdown.new(~s(\n  <div style=\\\"height: 20px; width: 100%; background-color: grey\\\">\n  <div style=\\\"height: 20px; width: #{percentage}%; background-color: green; color: white;\\\">#{percentage}%</div>\n  </div>\n))","title":true},"chunks":null,"kind":"Elixir.Visual","livebook_object":"smart_cell"} -->
 
 ```elixir
-percentage = 50.0
+percentage = 82.03212315
 Kino.Markdown.new(~s(
   <div style=\"height: 20px; width: 100%; background-color: grey\">
   <div style=\"height: 20px; width: #{percentage}%; background-color: green; color: white;\">#{percentage}%</div>
@@ -215,10 +211,16 @@ provide utilities for working with money.
 In the Elixir cell below, enter some floating-point addition that returns an unexpected result.
 
 ```elixir
-
+2.5 + 2.2
 ```
 
 ## Arithmetic Operators
+
+```elixir
+# 85 / 5
+8525 - 212
+# 8454 * 25
+```
 
 Using **arithmetic operators**, we can add `+`, subtract `-`, multiply `*` and divide `/`.
 We also have two special arithmetic operators, `div/2` for integer division and `rem/2` for
@@ -246,7 +248,7 @@ The following code will crash because there is a dangling `+` operator. The erro
 Elixir lets you know why with an error message.
 
 ```elixir
-2 +
+2 + 0
 ```
 
 As mentioned, adding floats together may result in floating point errors, so only use them
@@ -281,7 +283,7 @@ to write code like this, but it's useful to know you can.
 In the Elixir cell below, add two massive numbers together that you couldn't do in your head.
 
 ```elixir
-
+313_465_312 + 32_123_213
 ```
 
 ## Subtraction
@@ -305,7 +307,7 @@ Like with addition, we can subtract floats and integers in any combination.
 Floating-point errors can still occur.
 
 ```elixir
-1.3 - 1.2
+1.40 - 1.2
 ```
 
 Subtracting a negative is the same as adding a positive.
@@ -319,7 +321,7 @@ Subtracting a negative is the same as adding a positive.
 In the Elixir cell below, subtract two massive numbers together.
 
 ```elixir
-
+1_313_515 - -021_321
 ```
 
 ## Multiplication
@@ -348,7 +350,7 @@ You can multiply integers and floats both positive and negative in combination, 
 In the Elixir cell below, multiply two massive numbers together.
 
 ```elixir
-
+321_213_514 * 31_518_653
 ```
 
 ## Division
@@ -390,13 +392,13 @@ In the Elixir cell below, divide `223` by `71` using `/` to get a nice slice of 
 should be close to `3.14`.
 
 ```elixir
-
+223 / 71
 ```
 
 Divide `100` by `3` using `div`. Your answer should be `33`.
 
 ```elixir
-
+div(100, 3)
 ```
 
 ## Exponents
@@ -432,7 +434,7 @@ In the Elixir cell below, Use the `**` operator to determine `10` to the power o
 </details>
 
 ```elixir
-
+10 ** 214
 ```
 
 ## BEDMAS
@@ -508,7 +510,7 @@ Use brackets `()` to alter the return value of the expression below to be `200` 
 </details>
 
 ```elixir
-10 + 10 * 10
+(10 + 10) * 10
 ```
 
 ## Remainder
@@ -527,7 +529,7 @@ YouTube.new("https://www.youtube.com/watch?v=P1qyjdh_sIw")
 ```
 
 ```elixir
-rem(5, 2)
+rem(8, 3)
 ```
 
 In programming, we can use remainders to check if a number is evenly divisible by a number.
@@ -601,7 +603,7 @@ rem(10, 3)
 Enter your solution below.
 
 ```elixir
-
+rem(10, 3)
 ```
 
 ## Further Reading
