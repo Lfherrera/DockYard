@@ -107,7 +107,7 @@ Enter your solution below.
 
 ```elixir
 inital_count = 0
-inital_count + high
+high_card = inital_count + high
 ```
 
 ## Low Card
@@ -127,7 +127,7 @@ initial_count + low
 Enter your solution below.
 
 ```elixir
-inital_count + low
+low_card = inital_count + low
 ```
 
 ## Multiple Cards
@@ -150,7 +150,7 @@ Enter your solution below.
 
 ```elixir
 inital_count = 5
-inital_count + high * 5 + low * 2 + normal * 2
+multiple_cards = inital_count + high * 5 + low * 2 + normal * 2
 ```
 
 ## Bonus: Determining Card Values
