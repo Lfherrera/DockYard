@@ -56,7 +56,11 @@ blank3 = "code"
 Enter your solution below.
 
 ```elixir
+word1 = "Person"
+word2 = "requirements"
+word3 = "business value"
 
+"A programmer is a " <> word1 <> " that turns " <> word2 <> "into " <> word3
 ```
 
 ## String Interpolation Madlib
@@ -81,7 +85,11 @@ blank3 = "foobar"
 Enter your solution below.
 
 ```elixir
+blank1 = "black"
+blank2 = "white"
+blank3 = "gray"
 
+IO.puts("#{blank1} and #{blank2} combined makes #{blank3}")
 ```
 
 ## Commit Your Progress
