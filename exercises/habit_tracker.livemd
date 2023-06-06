@@ -116,7 +116,7 @@ small * 10 + medium * 5 + large * 3
 Enter your answer below.
 
 ```elixir
-small * 10 + medium * 5 + large * 3
+multiples = small * 10 + medium * 5 + large * 3
 ```
 
 ## Progress Bar
@@ -148,7 +148,7 @@ Enter your answer below.
 
 ```elixir
 goal = 40
-(small + medium) / goal * 100
+progress_bar = (small + medium) / goal * 100
 ```
 
 ## Penalties And Rewards

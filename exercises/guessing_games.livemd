@@ -55,9 +55,9 @@ guess = "Turkey"
 answer = "Turkey"
 
 if guess == answer do
-  IO.puts("Correct")
+  IO.puts("Correct!")
 else
-  IO.puts("Incorret")
+  IO.puts("Incorrect.")
 end
 
 # guess == answer && "Correct!" || "Incorrect"
@@ -92,7 +92,15 @@ Armed with this knowledge, you're going to create a word guessing game.
 Enter your solution below.
 
 ```elixir
+guess = "howdy"
+answer = Enum.random(["hello", "hi", "howdy"])
 
+cond do
+  guess !== answer -> "Incorrect."
+  guess == answer -> "Correct!"
+end
+
+# guess == answer && "Correct!" || "Incorrect."
 ```
 
 ## Bonus: Guess The Number
@@ -144,7 +152,15 @@ Now let's build a number guessing game
 Enter your solution below.
 
 ```elixir
+answer = Enum.random(1..5)
+guess = 4
 
+cond do
+  guess < answer -> "Too low!"
+  guess > answer -> "Too high!"
+  guess == answer -> "correct!"
+  true -> "Bad Input"
+end
 ```
 
 ## Commit Your Progress
