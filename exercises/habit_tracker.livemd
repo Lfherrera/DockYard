@@ -176,7 +176,7 @@ Enter your answer below.
 
 ```elixir
 goal = 40
-small * 1.6 * 3 + medium * 2 + large * 2 * 0.5
+pen_Reward = small * 1.6 * 3 + medium * 2 + large * 2 * 0.5
 ```
 
 ## Bonus: Add Your Own Feature
@@ -185,7 +185,7 @@ Add your own feature to the habit tracking app. Use comments to describe your fe
 how it would affect calculating the total score and/or the total percentage of completed habits.
 
 ```elixir
-
+# 
 ```
 
 ## Commit Your Progress
