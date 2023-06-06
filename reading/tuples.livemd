@@ -80,7 +80,7 @@ the second element.
 </details>
 
 ```elixir
-
+{:ok, "got it!"}
 ```
 
 ## Pattern Matching
@@ -104,6 +104,8 @@ The coercion to match is less obvious with a simple variable name, because it's 
 
 ```elixir
 my_tuple = {1, 2, 3}
+list = Tuple.to_list(my_tuple)
+hd_list = hd(list)
 ```
 
 However, we can bind other values inside of a container data type, so the left and right side still match.
@@ -160,7 +162,8 @@ jewel
 </details>
 
 ```elixir
-{"gold", "treasure", "jewel"}
+{_gold, _treasure, jewel} = {"gold", "treasure", "jewel"}
+jewel
 ```
 
 ## Further Reading
