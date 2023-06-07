@@ -155,7 +155,7 @@ maze = %{
   }
 }
 
-maze["south"]["east"]["south"]["west"]["south"]["west"]["south"]["east"]
+maze["south"]["east"]["south"]["west"]["south"]["west"]["south"]["east"]["south"]
 ```
 
 ## Bonus: Treasure Map
