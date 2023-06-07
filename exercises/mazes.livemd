@@ -275,6 +275,12 @@ treasure_map = %{
 }
 
 # Map.get_and_update(treasure_map, :dig, fn curr_value -> {curr_value, "taken"} end)
+# %{
+#   "south ten paces" => %{
+#     10 => %{:"east three paces" => %{[1, 2, 3] => %{{"turn", "right"} => %{:dig => fn my_var}}}}
+#   }
+# } = treasure_map
+# my_var
 
 new_map =
   treasure_map
