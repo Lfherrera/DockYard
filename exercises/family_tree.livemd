@@ -172,7 +172,50 @@ family_tree = arthur
 Enter your solution below.
 
 ```elixir
+arthur = %{
+  name: "Arthur",
+  age: 22,
+  status: :child,
+  parents: [
+    %{
+      name: "Urther",
+      age: 56,
+      status: :parent,
+      parents: [
+        %{
+          name: "Leia",
+          age: 82,
+          status: :grand_parent
+        },
+        %{
+          name: "Han",
+          age: 81,
+          status: :grand_parent
+        }
+      ]
+    },
+    %{
+      name: "Ygraine",
+      age: 45,
+      status: :parent,
+      parents: [
+        %{
+          name: "Bob",
+          age: 68,
+          status: :grand_parent
+        },
+        %{
+          name: "Bridget",
+          age: 70,
+          status: :grand_parent
+        }
+      ]
+    }
+  ]
+}
 
+family_tree = arthur
+# Enum.each(family_tree, fn {key, value} -> IO.puts(value) end)
 ```
 
 ## Commit Your Progress

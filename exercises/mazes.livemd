@@ -91,6 +91,8 @@ maze = %{
     }
   }
 }
+
+maze.south.west.south.east.south.east.south
 ```
 
 ## The String Maze
@@ -152,6 +154,8 @@ maze = %{
     }
   }
 }
+
+maze["south"]["east"]["south"]["west"]["south"]["west"]["south"]["east"]
 ```
 
 ## Bonus: Treasure Map
@@ -197,6 +201,8 @@ treasure_map = %{
     }
   }
 }
+
+treasure_map["south ten paces"][10][:"east three paces"][[1, 2, 3]][{"turn", "right"}][:dig]
 ```
 
 ### (Extra Bonus) Update The Treasure Map
@@ -267,6 +273,17 @@ treasure_map = %{
     }
   }
 }
+
+# Map.get_and_update(treasure_map, :dig, fn curr_value -> {curr_value, "taken"} end)
+
+new_map =
+  treasure_map
+  |> Map.get("south ten paces")
+  |> Map.get(10)
+  |> Map.get(:"east three paces")
+  |> Map.get([1, 2, 3])
+  |> Map.get({"turn", "right"})
+  |> Map.put(:dig, "taken")
 ```
 
 ## Bonus: Pattern Matching
@@ -293,6 +310,18 @@ maze = %{
     }
   }
 }
+
+%{
+  "south" => %{
+    "east" => %{
+      "south" => %{
+        "west" => %{"south" => %{"west" => %{"south" => %{"east" => %{"south" => exit}}}}}
+      }
+    }
+  }
+} = maze
+
+exit
 ```
 
 ## BONUS: Create Your Own Maze
