@@ -335,7 +335,11 @@ at least a 5 * 5 in width and height.
 Enter your solution below.
 
 ```elixir
+custom_maze = %{
+  "down" => %{"right" => %{"down" => %{"right" => %{"down" => %{"left" => "Exit!"}}}}}
+}
 
+custom_maze["down"]["right"]["down"]["right"]["down"]["left"]
 ```
 
 ## Commit Your Progress
