@@ -494,7 +494,7 @@ We can then use the `call_with_2/1` higher order function with an `add_three/1` 
 
 ```elixir
 add_three = fn int -> int + 3 end
-# the add_three 'int' params will become/take-in the call_back function,wich just "take num 2
+# the add_three 'int' params will become/take-in the call_back function,which just "take num 2
 call_with_2.(add_three)
 ```
 
