@@ -298,7 +298,15 @@ is_even? = fn int -> rem(int, 2) == 0 end
 Enter your solution below.
 
 ```elixir
+is_even = fn num ->
+  if rem(num, 2) == 0 do
+    true
+  else
+    false
+  end
+end
 
+is_even.(3)
 ```
 
 ## Multi-Parameter Functions
@@ -364,7 +372,8 @@ calculate_force = fn mass, acceleration -> mass * acceleration end
 Enter your solution below.
 
 ```elixir
-
+calculate_force = fn mass, acceleration -> mass * acceleration end
+calculate_force.(54, 2)
 ```
 
 ## Shorthand Syntax
@@ -413,7 +422,8 @@ subtract = &(&1 - &2)
 Enter your solution below.
 
 ```elixir
-
+subtract = &(&1 - &2)
+subtract.(39, 10)
 ```
 
 ### Your Turn
@@ -439,7 +449,8 @@ multiply_three = &(&1 * &2 * &3)
 Enter your solution below.
 
 ```elixir
-
+multiply_three = &(&1 * &2 * &3)
+multiply_three.(4, 22, 3)
 ```
 
 ## First-class Functions
@@ -483,7 +494,7 @@ We can then use the `call_with_2/1` higher order function with an `add_three/1` 
 
 ```elixir
 add_three = fn int -> int + 3 end
-
+# the add_three 'int' params will become/take-in the call_back function,wich just "take num 2
 call_with_2.(add_three)
 ```
 
@@ -527,7 +538,12 @@ call_with_10_and_20 = fn callback -> callback.(10, 20) end
 Enter your solution below.
 
 ```elixir
-call_with_10_and_20 = nil
+call_with_10_and_20 = fn callback -> callback.(10, 20) end
+# needed two params 
+new_high_order_fun = fn num, num2 -> num * 2 + num2 * 2 end
+# new_high_order_fun = fn num -> num * 2 end
+
+call_with_10_and_20.(new_high_order_fun)
 ```
 
 ## Pipe Operator
@@ -640,7 +656,11 @@ multiply = fn int1, int2 -> int1 * int2 end
 Enter your solution below.
 
 ```elixir
+add = fn num, num2 -> num + num2 end
+subtract = fn num, num2 -> num - num2 end
+multiply = fn num, num2 -> num * num2 end
 
+10 |> add.(2) |> multiply.(5) |> subtract.(4)
 ```
 
 ## Commit Your Progress
