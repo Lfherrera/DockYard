@@ -100,7 +100,9 @@ naming_numbers = fn num ->
   end
 end
 
-naming_numbers.(9)
+num = Enum.random(0..9)
+
+naming_numbers.(num)
 ```
 
 ## Numbering Names
@@ -197,9 +199,6 @@ flowchart
 </details>
 
 ```elixir
-# x = fn string -> String.capitalize(string) end
-# x.("luis")
-
 naming_numbers = fn string_num ->
   case String.capitalize(string_num) do
     "Zero" -> 0
@@ -216,7 +215,7 @@ naming_numbers = fn string_num ->
   end
 end
 
-naming_numbers.("asdf")
+naming_numbers.("five")
 ```
 
 ## Commit Your Progress
