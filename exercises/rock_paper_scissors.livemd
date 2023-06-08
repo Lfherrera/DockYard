@@ -137,7 +137,7 @@ case {player_choice, player2_choice} do
   {:scissors, :rock} -> "Player 2 wins"
   {:paper, :rock} -> "Player 1 wins"
   {:rock, :scissors} -> "Player 1 wins"
-  {:scissors, :paper} -> "Player 1 wins"
+  {:scissors, :paper} -> "Player 1 wins!"
   {_a, _b} -> "draw"
 end
 ```
