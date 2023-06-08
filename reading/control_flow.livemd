@@ -133,7 +133,13 @@ end
 Enter your solution below.
 
 ```elixir
+temp = Enum.random(0..20)
 
+if temp > 10 do
+  :hot
+else
+  :cold
+end
 ```
 
 ## Clear Control Flow
@@ -278,7 +284,7 @@ We can provide any number of cases. Cases use pattern matching to decide which r
 Return each value from `1` to `5` by changing the `condition` variable below.
 
 ```elixir
-condition = nil
+condition = %{key: "value"}
 
 case condition do
   :red -> 1
@@ -378,7 +384,8 @@ end
 Return each result from `1` to `5` by changing the `condition` variable below.
 
 ```elixir
-condition = nil
+# condition = %{key1: 3, key2: "value"}
+condition = {1, 3, %{key: [1, 23, 24]}}
 
 case condition do
   [1, 2, 3] -> 1
@@ -435,10 +442,11 @@ end
 This means that order does matter. Here, even though the integer is above `5`, it will never trigger the second condition, because the first condition is always true.
 
 ```elixir
-value = 10
+value = 31
 
 cond do
   is_integer(value) -> "value is an integer"
+  value >= 11 and value <= 15 -> "will never hit second condition"
   value > 5 -> "value is above 5"
 end
 ```
@@ -446,7 +454,7 @@ end
 Generally, we want more specific conditions to be higher in priority than less specific conditions.
 
 ```elixir
-value = 10
+value = 1
 
 cond do
   value > 5 -> "value is above 5"
@@ -517,7 +525,15 @@ end
 </details>
 
 ```elixir
+grade = Enum.random(1..100)
+IO.inspect(grade)
 
+cond do
+  grade >= 1 and grade <= 54 -> "D"
+  grade >= 55 and grade <= 69 -> "C"
+  grade >= 70 and grade <= 84 -> "B"
+  grade >= 85 and grade <= 100 -> "A"
+end
 ```
 
 ## Unless
@@ -571,7 +587,12 @@ In the Elixir cell below
 * Create an `unless` statement. which returns `"awake"` unless `tired`.
 
 ```elixir
+tired = true
 
+unless tired do
+else
+  "awake"
+end
 ```
 
 ## Commit Your Progress
