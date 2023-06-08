@@ -84,7 +84,23 @@ naming_numbers.(1)
 Enter your solution below.
 
 ```elixir
+naming_numbers = fn num ->
+  case num do
+    0 -> "zero"
+    1 -> "one"
+    2 -> "two"
+    3 -> "three"
+    4 -> "four"
+    5 -> "five"
+    6 -> "six"
+    7 -> "seven"
+    8 -> "eight"
+    9 -> "nine"
+    _ -> "not a number"
+  end
+end
 
+naming_numbers.(9)
 ```
 
 ## Numbering Names
@@ -181,7 +197,26 @@ flowchart
 </details>
 
 ```elixir
+# x = fn string -> String.capitalize(string) end
+# x.("luis")
 
+naming_numbers = fn string_num ->
+  case String.capitalize(string_num) do
+    "Zero" -> 0
+    "One" -> 1
+    "Two" -> 2
+    "Three" -> 3
+    "Four" -> 4
+    "Five" -> 5
+    "Six" -> 6
+    "Seven" -> 7
+    "Eight" -> 8
+    "Nine" -> 9
+    _ -> "Invalid input"
+  end
+end
+
+naming_numbers.("asdf")
 ```
 
 ## Commit Your Progress
