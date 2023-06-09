@@ -128,8 +128,8 @@ Enter your solution below.
 ```elixir
 player_choice = Enum.random([:rock, :paper, :scissors])
 player2_choice = Enum.random([:rock, :paper, :scissors])
-IO.inspect("Player 1 : #{player_choice}")
-IO.inspect("Player 2 : #{player2_choice}")
+IO.inspect(player_choice, label: "Player 1")
+IO.inspect(player2_choice, label: "Player 2")
 
 case {player_choice, player2_choice} do
   {:rock, :paper} -> "Player 2 wins"

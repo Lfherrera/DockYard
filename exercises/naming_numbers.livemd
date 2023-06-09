@@ -84,6 +84,12 @@ naming_numbers.(1)
 Enter your solution below.
 
 ```elixir
+words = ["zero", ...]
+
+name_num = fn num ->
+  Enum.at(words, num)
+end
+
 naming_numbers = fn num ->
   case num do
     0 -> "zero"
@@ -215,7 +221,7 @@ naming_numbers = fn string_num ->
   end
 end
 
-naming_numbers.("five")
+naming_numbers.("zEro")
 ```
 
 ## Commit Your Progress
