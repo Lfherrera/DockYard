@@ -113,6 +113,36 @@ Implement the `RockPaperScissorsLizardSpock` module below.
 
 ```elixir
 defmodule RockPaperScissorsLizardSpock do
+  player1 = Enum.random([:rock, :paper, :scissors, :lizard, :spock])
+  player2 = Enum.random([:rock, :paper, :scissors, :lizard, :spock])
+
+  IO.inspect(player1, label: "Player1")
+  IO.inspect(player2, label: "Player2")
+
+  def beats?(player1, player2) do
+    case {player1, player2} do
+      {:rock, :scissors} -> true
+      {:paper, :rock} -> true
+      {:scissors, :paper} -> true
+      {:rock, :lizard} -> true
+      {:lizard, :spock} -> true
+      {:spock, :scissors} -> true
+      {:scissors, :lizard} -> true
+      {:lizard, :paper} -> true
+      {:paper, :spock} -> true
+      {:spock, :rock} -> true
+      _a -> false
+    end
+  end
+
+  def play(player1, player2) do
+    cond do
+      beats?(player1, player2) -> "Player 1 Wins!"
+      beats?(player2, player1) -> "Player 2 Wins!"
+      true -> "Draw!"
+    end
+  end
+
   @doc """
   ## Examples
 
@@ -127,7 +157,7 @@ defmodule RockPaperScissorsLizardSpock do
       iex> RockPaperScissorsLizardSpock.beats?(:spock, :paper)
       false
   """
-  def beats?(guess1, guess2) do
+  def beats?(_guess1, _guess2) do
   end
 
   @doc """
@@ -137,6 +167,7 @@ defmodule RockPaperScissorsLizardSpock do
       iex> "Player 2 Wins!" = RockPaperScissorsLizardSpock.play(:lizard, :rock)
       iex> "Draw!" = RockPaperScissorsLizardSpock.play(:lizard, :lizard)
   """
+
   def play(player1, player2) do
   end
 end
