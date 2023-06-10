@@ -84,7 +84,22 @@ end
 Then implement the `Character` functions to generate dialogue according to the documented examples below.
 
 ```elixir
+defmodule Character1 do
+  @char_name [:name]
+  defstruct @char_name ++ [:class, :weapon]
+end
+
+# character1 = %Character1{name: "Luis", weapon: "axe", class: "worrior"}
+# character2 = %Character1{name: "aragorn", weapon: "sword", class: "ranger"}
+#   IO.inspect(character1)
+#   IO.inspect(character2)
+```
+
+```elixir
 defmodule Character do
+  @enforce_keys [:name]
+  defstruct @enforce_keys ++ [:class, :weapon]
+
   @moduledoc """
   Character
 
@@ -95,11 +110,11 @@ defmodule Character do
 
   The :name key is required.
 
-  iex> %Character{name: "Frodo"}
+  iex> %Character{class: "Frodo"}
   ** (ArgumentError) the following keys must also be given when building struct Character: [:name]
   """
-  defstruct []
-
+  # defstruct []
+  # IO.inspect(frodo)
   @doc """
   Introduce the character by name.
 
@@ -111,7 +126,10 @@ defmodule Character do
     iex> Character.introduce(%Character{name: "Aragorn"})
     "My name is Aragorn."
   """
+
   def introduce(character) do
+    "My name is #{character.name}."
+    # "My name is #{character2.name}."
   end
 
   @doc """
@@ -126,6 +144,7 @@ defmodule Character do
     "I attack with my sword!"
   """
   def attack(character) do
+    "I attack with my #{character.weapon}!"
   end
 
   @doc """
@@ -140,6 +159,7 @@ defmodule Character do
     "I am a ranger."
   """
   def class(character) do
+    "I am a #{character.class()}."
   end
 
   @doc """
@@ -154,6 +174,7 @@ defmodule Character do
     "My name is Aragorn and I am a ranger!"
   """
   def war_cry(character) do
+    "My name is #{character.name()} and I am a #{character.class()}!"
   end
 
   @doc """
@@ -161,13 +182,14 @@ defmodule Character do
 
   ## Examples
 
-    iex> Character.defeat(%Character{name: "Gimli"}, %Character{name: "Aragorn", class: "ranger"})
+    iex> character1 = Character.defeat(%Character{name: "Gimli"}, %Character{name: "Aragorn", class: "ranger"})
     "My name is Gimli and I have defeated the ranger Aragorn!"
 
-    iex> Character.defeat(%Character{name: "Aragorn"}, %Character{name: "Gimli", class: "warrior"})
+    iex> character2 = Character.defeat(%Character{name: "Aragorn"}, %Character{name: "Gimli", class: "warrior"})
     "My name is Aragorn and I have defeated the warrior Gimli!"
   """
   def defeat(character1, character2) do
+    "My name is #{character1.name} and I have defeated the #{character2.class} #{character2.name}!"
   end
 end
 ```
