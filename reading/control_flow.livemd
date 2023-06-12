@@ -104,7 +104,7 @@ weather --> foggy --> r4[something bright]
 weather = :sunny
 
 recommendation = "t-shirt"
-recommendation = if weather == :snowing, do: "thick coat", else: recommendation
+
 recommendation = if weather == :raining, do: "raincoat", else: recommendation
 recommendation = if weather == :foggy, do: "something bright", else: recommendation
 
