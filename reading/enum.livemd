@@ -384,7 +384,8 @@ Enum.map(1..10, fn integer -> "#{integer}" end)
 Enter your solution below.
 
 ```elixir
-
+# var = Enum.map(1..10, fn e -> "#{e}"end)
+var = Enum.map(1..10, fn e -> to_string(e) end)
 ```
 
 ## Enum.reduce/2 And Enum.reduce/3
@@ -408,7 +409,7 @@ For example, we can sum all of the numbers in a list by building up an accumulat
 ```elixir
 list = [1, 2, 3, 4]
 
-Enum.reduce(list, fn integer, accumulator -> integer + accumulator end)
+Enum.reduce(list, fn integer, accumulator -> integer + accumulator * accumulator end)
 ```
 
 The function you provide as the second argument of [Enum.reduce/2](https://hexdocs.pm/elixir/Enum.html#reduce/2) will be called with the current element, and current accumulator.
@@ -506,7 +507,16 @@ end)
 Enter your solution below.
 
 ```elixir
+# list_num = [2 + 4 + 6 + 8 + 10 ]
+# Enum.reduce(list_num, fn int, acc -> int + acc end)
 
+Enum.reduce(1..10, 0, fn num, acc ->
+  if rem(num, 2) == 0 do
+    num + acc
+  else
+    acc
+  end
+end)
 ```
 
 ## Enum.filter

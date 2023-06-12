@@ -80,6 +80,10 @@ YouTube.new("https://www.youtube.com/watch?v=QPZ0pIK_wsc&ab_channel=TomScott")
 ```
 
 ```elixir
+Enum.map(1..10, fn each -> "#{each}" end)
+```
+
+```elixir
 defmodule FizzBuzz do
   @doc """
   FizzBuzz.
@@ -92,9 +96,27 @@ defmodule FizzBuzz do
     iex> FizzBuzz.run(10..15)
     ["buzz", 11, "fizz", 13, 14, "fizzbuzz"]
   """
+
+  # integers divisible by 3 are replaced with fizz
+  # integers divisible by 5 are replaced with buzz
+
+  # integers not matching the above stay the same.
+
   def run(range) do
+    Enum.map(range, fn each ->
+      cond do
+        rem(each, 3) == 0 and rem(each, 5) == 0 -> "fizzbuzz"
+        rem(each, 3) == 0 -> "fizz"
+        rem(each, 5) == 0 -> "buzz"
+        #  rem(each,3) == 0 and rem(each, 5) != 0 -> "fizz"
+        #  rem(each,3) != 0 and rem(each, 5) == 0 -> "buzz"
+        true -> each
+      end
+    end)
   end
 end
+
+FizzBuzz.run(1..5)
 ```
 
 ## Commit Your Progress
