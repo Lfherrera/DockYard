@@ -277,8 +277,8 @@ map = %{}
 list = [1, 2, 3]
 tuple = {1, 2, 3}
 
-"#{inspect(map)}"
-# "#{inspect(list)}"
+# "#{inspect(map)}"
+"#{inspect(list)}"
 # "#{inspect(tuple)}"
 ```
 
