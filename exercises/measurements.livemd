@@ -79,6 +79,15 @@ defmodule Test do
     upto_tail_rec(num - 1, acc + num)
   end
 
+  def reverse_num(num, acc \\ 0)
+  def reverse_num(0, acc), do: acc
+
+  def reverse_num(num, acc) do
+    new_num = div(num, 10)
+    new_acc = acc * 10 + rem(num, 10)
+    reverse_num(new_num, new_acc)
+  end
+
   # Recursion funciton
   def upto(0), do: 0
 
@@ -90,8 +99,9 @@ end
 ```
 
 ```elixir
-Test.upto(9)
-Test.upto_tail_rec(9)
+Test.reverse_num(567)
+# Test.upto(9)
+# Test.upto_tail_rec(9)
 ```
 
 ```elixir
