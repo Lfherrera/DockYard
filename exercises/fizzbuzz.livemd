@@ -99,24 +99,33 @@ defmodule FizzBuzz do
 
   # integers divisible by 3 are replaced with fizz
   # integers divisible by 5 are replaced with buzz
-
+  # integers divisible by 3 and 5 are replaced with fizzbuzz
   # integers not matching the above stay the same.
 
+  #   def run(range) do
+  #     Enum.map(range, fn each ->
+  #       cond do
+  #        rem(each,3) == 0 and rem(each, 5) == 0 -> "fizzbuzz"
+  #        rem(each, 3) == 0 -> "fizz"      
+  #        rem(each, 5) == 0 ->  "buzz"
+  #       true -> each
+  #       end
+  #     end)
+  #   end
+  # end
   def run(range) do
     Enum.map(range, fn each ->
-      cond do
-        rem(each, 3) == 0 and rem(each, 5) == 0 -> "fizzbuzz"
-        rem(each, 3) == 0 -> "fizz"
-        rem(each, 5) == 0 -> "buzz"
-        #  rem(each,3) == 0 and rem(each, 5) != 0 -> "fizz"
-        #  rem(each,3) != 0 and rem(each, 5) == 0 -> "buzz"
-        true -> each
+      case {rem(each, 5) == 0, rem(each, 3) == 0} do
+        {true, true} -> "fizzbuzz"
+        {true, _} -> "buzz"
+        {_, true} -> "fizz"
+        _ -> each
       end
     end)
   end
 end
 
-FizzBuzz.run(1..5)
+FizzBuzz.run(1..15)
 ```
 
 ## Commit Your Progress

@@ -69,6 +69,32 @@ end
 Implement the `Measurements` module according to the documented function examples.
 
 ```elixir
+defmodule Test do
+  # Tail Recursion funciton - these are fastest
+  def upto_tail_rec(num, acc \\ 0)
+  def upto_tail_rec(0, acc), do: acc
+
+  def upto_tail_rec(num, acc) do
+    IO.inspect("Num #{num} and #{acc}")
+    upto_tail_rec(num - 1, acc + num)
+  end
+
+  # Recursion funciton
+  def upto(0), do: 0
+
+  def upto(num) do
+    # IO.inspect(num, label: "Num")
+    num + upto(num - 1)
+  end
+end
+```
+
+```elixir
+Test.upto(9)
+Test.upto_tail_rec(9)
+```
+
+```elixir
 defmodule Measurements do
   @doc """
   Given a list of measurements as integers, determine the increment between each integer.
@@ -81,7 +107,12 @@ defmodule Measurements do
     iex> Measurements.increments([10, 20, 10, 40])
     [10, -10, 30]
   """
+
   def increments(measurements) do
+    Enum.chunk_every(measurements, 2, 1, :discard)
+    |> Enum.map(fn [left, right] -> right - left end)
+
+    # |> IO.inspect(label: "inial inc")
   end
 
   @doc """
@@ -100,6 +131,12 @@ defmodule Measurements do
     1
   """
   def increased(measurements) do
+    measurements
+    |> increments
+    # |> IO.inspect(label: "count func")
+    |> Enum.count(&(&1 > 0))
+
+    # IO.inspect()
   end
 
   @doc """
@@ -115,6 +152,10 @@ defmodule Measurements do
     40
   """
   def increased_by(measurements) do
+    measurements
+    |> increments
+    |> Enum.filter(&(&1 > 0))
+    |> Enum.sum()
   end
 
   @doc """
@@ -130,6 +171,8 @@ defmodule Measurements do
     6.0
   """
   def average(measurements) do
+    # IO.inspect("Enum.Sum #{Enum.sum(measurements)} Enum.count #{Enum.count(measurements)}")
+    div(Enum.sum(measurements), Enum.count(measurements))
   end
 end
 ```
