@@ -69,7 +69,7 @@ Integer.digits(123)
 In the Elixir cell below, convert the integer `4389` into a list of digits.
 
 ```elixir
-
+Integer.digits(4389)
 ```
 
 ### Undigits
@@ -132,7 +132,7 @@ String.split("abcde", "")
 You can trim whitespace using the `[trim: true]` option.
 
 ```elixir
-String.split("abcde", "", trim: true)
+String.split("Sophia Herrera & Emilia Herrera", "", trim: true)
 ```
 
 By default, [String.split/1](https://hexdocs.pm/elixir/String.html#split/1) will split the string on every space.
@@ -150,7 +150,7 @@ Now your string is an enumerable list of characters.
 In the Elixir cell below, convert the string `"Hello, world!"` into a list of single characters.
 
 ```elixir
-
+String.split("Hello, Sophia Herrera", "", trim: true)
 ```
 
 ### Joining Strings
@@ -228,6 +228,9 @@ defmodule CharacterCount do
       4
   """
   def count(string) do
+    string
+    |> String.split("", trim: true)
+    |> Enum.count()
   end
 end
 ```
