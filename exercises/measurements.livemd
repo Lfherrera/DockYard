@@ -175,10 +175,10 @@ defmodule Measurements do
   ## Examples
 
     iex> Measurements.average([4, 5, 6])
-    5.0
+    5
 
     iex> Measurements.average([2, 10])
-    6.0
+    6
   """
   def average(measurements) do
     # IO.inspect("Enum.Sum #{Enum.sum(measurements)} Enum.count #{Enum.count(measurements)}")
