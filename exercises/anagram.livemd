@@ -82,7 +82,24 @@ defmodule Anagram do
     iex> Anagram.anagram?("robed", "bored")
     true
   """
+
+  # def anagram?(word, possible_anagram) do
+  #   if String.length(word) === String.length(possible_anagram) do
+  #     String.split(word ,"", trim: true)
+  #     |> Enum.all?(fn word -> String.contains?(possible_anagram, word) end)
+  #   else
+  #     false
+  #   end
+  # end
+
   def anagram?(word, possible_anagram) do
+    if String.length(word) === String.length(possible_anagram) do
+      w = String.split(word, "", trim: true) |> Enum.sort()
+      p = String.split(possible_anagram, "", trim: true) |> Enum.sort()
+      w == p
+    else
+      false
+    end
   end
 
   @doc """
@@ -100,6 +117,7 @@ defmodule Anagram do
     []
   """
   def filter_anagrams(word_list, anagram) do
+    Enum.filter(word_list, fn word_list -> anagram?(word_list, anagram) end)
   end
 end
 ```

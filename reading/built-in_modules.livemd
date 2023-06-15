@@ -100,6 +100,44 @@ Kernel.elem({3, 6, 9}, 0)
 We can use [Kernel](https://hexdocs.pm/elixir/Kernel.html) functions with or without using the [Kernel](https://hexdocs.pm/elixir/Kernel.html) namespace.
 
 ```elixir
+defmodule LuisH do
+  # Practice code from Octallium YouTube 
+  # https://www.youtube.com/watch?v=DEui6XgSm1g&list=PLYwEjF73cpLm7ER-veWSaFxbGrKqP-3li&index=26
+  # tail recursive function
+  @spec reverse(list(any()), [any()]) :: [any()]
+  # define function signature with default values
+  def reverse(input, acc \\ [])
+  # define base case -> if you get empty list return empty list, because of default values above
+  def reverse([], acc), do: acc
+
+  #   patter match on 'input', do: -> calls back it's self adding each head element to accumiliator  
+  def reverse([h | t], acc), do: reverse(t, [h | acc])
+
+  # -------------------------Map----------------------------
+
+  # This is how the Map function works
+  def map_rec(element, func, acc \\ [])
+  # to fix the output showing as reversed add this to the do: acc 
+  def map_rec([], _, acc), do: acc |> Enum.reverse()
+  def map_rec([h | t], func, acc), do: map_rec(t, func, [func.(h) | acc])
+end
+
+list_to_reverse = [1, 2, 3, "Luis", %{a: "map"}, 9, 10]
+# LuisH.reverse(list_to_reverse)
+# LuisH.map_rec([4,6,8], fn x -> x * 3 end) # output is reversed
+
+# LuisH.reverse(LuisH.map_rec([4,6,8], fn x -> x * 3 end))
+# # or use pipes
+# LuisH.map_rec([4,6,8], fn x -> x * 3 end) |> LuisH.reverse()
+
+LuisH.map_rec([4, 6, 8], fn x -> x * 3 end)
+```
+
+```elixir
+
+```
+
+```elixir
 elem({3, 6, 9}, 0)
 ```
 
