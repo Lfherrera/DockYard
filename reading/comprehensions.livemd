@@ -121,7 +121,7 @@ var =
   end
 
 sum
-# var
+Enum.sum(var)
 ```
 
 So what are comprehensions for? Currently, we can accomplish the same behavior with the [Enum](https://hexdocs.pm/elixir/Enum.html) module.

@@ -86,11 +86,22 @@ defmodule Palindrome do
     false
   """
   def palindrome?(string) do
+    # |> IO.inspect()
     normal = String.split(string, "", trim: true)
-    backwards = String.spit(String.reverse(string), "", trim: true)
-    IO.inspect("normal #{normal}")
-    # normal == backwards
+    # |> IO.inspect()
+    backwards = String.split(String.reverse(string), "", trim: true)
+    # IO.inspect(normal)
+    # IO.inspect(backwards)
+    normal == backwards
   end
+
+  # def palindrome?(string) do
+  #   list = String.split(string, "", trim: true)
+
+  #   Enum.reduce(list, "", fn each, acc ->
+  #     each <> acc
+  #   end) == string
+  # end
 
   # def palindrome?(string) do
   #   string
