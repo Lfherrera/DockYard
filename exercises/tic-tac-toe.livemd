@@ -162,6 +162,14 @@ defmodule TicTacToe do
       "A"
   """
   def at(board, coordinate) do
+    {x, y} = coordinate
+    # |> IO.inspect(lable: "y coordinate")
+    row_to_up = Enum.at(board, 2 - y)
+    # |> IO.inspect(label: "letter at coordinate")
+    Enum.at(row_to_up, x)
+
+    # {x, y} = coordinate
+    # Enum.at(board, 2 - y) |> Enum.at(x)
   end
 
   @doc """
@@ -180,6 +188,24 @@ defmodule TicTacToe do
       [[nil, nil, nil], [nil, "O", nil], [nil, nil, nil]]
   """
   def fill(board, coordinate, symbol) do
+    # extract our x and y coordinate
+    # x = elem(coordinate, 0)
+    # y = elem(coordinate, 1)
+    {x, y} = coordinate
+    # Get desired row to fill/ update with our symbol 
+    # |> IO.inspect()
+    row_to_update = Enum.at(board, 2 - y)
+
+    # update the the index on the desired row, remember the list is made of the other list
+    update_row = List.replace_at(row_to_update, x, symbol)
+
+    # final result is to update the list of list with new value [[],[],[]]
+    result = List.replace_at(board, 2 - y, update_row)
+
+    # {x, y} = coordinate
+    # List.update_at(board, 2 - y, fn row ->
+    #   List.replace_at(row, x, symbol)
+    # end)
   end
 end
 ```
