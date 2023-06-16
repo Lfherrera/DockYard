@@ -82,6 +82,8 @@ defmodule Anagram do
     iex> Anagram.anagram?("robed", "bored")
     true
   """
+
+  # Jazz solutions has bug cuz of not sorting. aab, bba
   # def anagram?(word, possible_anagram) do
   #   if String.length(word) === String.length(possible_anagram) do
   #     String.split(word ,"", trim: true)
@@ -90,12 +92,15 @@ defmodule Anagram do
   #     false
   #   end
   # end
+
   def split_sort(string) do
     String.split(string, "", trim: true) |> Enum.sort()
   end
 
   def anagram?(word, possible_anagram) do
     split_sort(word) == split_sort(possible_anagram)
+
+    [w, p_anagram] = for each
 
     # if String.length(word) === String.length(possible_anagram) do
     #   w = String.split(word ,"", trim: true) |> Enum.sort()
