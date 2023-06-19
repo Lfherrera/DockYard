@@ -93,22 +93,38 @@ defmodule Anagram do
   #   end
   # end
 
-  def split_sort(string) do
-    String.split(string, "", trim: true) |> Enum.sort()
+  # def split_sort(string) do
+  #   String.split(string, "", trim: true) |> Enum.sort()
+  # end
+
+  def anagram?(word, possible_anagram \\ "") do
+    #   split_sort(word) == split_sort(possible_anagram)
+
+    # word_list = String.split(word, "", trim: true)
+    # word_list2 = String.split(possible_anagram, "", trim: true)
+
+    # word_count =
+    #   Enum.reduce(word_list, %{}, fn letter, acc ->
+    #     Map.update(acc, letter, 1, fn count -> count + 1 end)
+    #   end)
+
+    # possible_anagram_count =
+    #   Enum.reduce(word_list2, %{}, fn letter, acc ->
+    #     Map.update(acc, letter, 1, fn count -> count + 1 end)
+    #   end)
+
+    #   word_count == possible_anagram_count
+
+    # refactor solution above
+    word_count(word) == word_count(possible_anagram)
   end
 
-  def anagram?(word, possible_anagram) do
-    split_sort(word) == split_sort(possible_anagram)
-
-    [w, p_anagram] = for each
-
-    # if String.length(word) === String.length(possible_anagram) do
-    #   w = String.split(word ,"", trim: true) |> Enum.sort()
-    #   p = String.split(possible_anagram ,"", trim: true) |>Enum.sort()
-    #   w == p
-    # else
-    #   false
-    # end
+  defp word_count(word) do
+    String.split(word, "", trim: true)
+    # dont need to pass in 1st params
+    |> Enum.reduce(%{}, fn letter, acc ->
+      Map.update(acc, letter, 1, fn count -> count + 1 end)
+    end)
   end
 
   @doc """
@@ -129,6 +145,18 @@ defmodule Anagram do
     Enum.filter(word_list, fn word_list -> anagram?(word_list, anagram) end)
   end
 end
+```
+
+```elixir
+word = "kayak"
+
+w_list = String.split(word, "", trim: true)
+
+# desired_acc = Map.update(acc, letter, 1, fn count -> count + 1 end)
+
+Enum.reduce(w_list, %{}, fn char, acc ->
+  Map.update(acc, char, 1, fn count -> count + 1 end)
+end)
 ```
 
 ## Bonus: Anagram Solver
@@ -156,6 +184,11 @@ defmodule AnagramSolver do
     ["abc", "acb", "bac", "bca", "cab", "cba"]
   """
   def solve(string) do
+    for letter <- String.graphemes(string), reduce: [] do
+      acc ->
+        [letter | acc]
+        # Enum.sort()
+    end
   end
 end
 ```

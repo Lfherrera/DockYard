@@ -141,7 +141,7 @@ In the Elixir cell below, you can see how Elixir converts lists of tuples matchi
 into a keyword list.
 
 ```elixir
-[{:key, "value"}, {:key, "value"}]
+[{:key, "value1"}, {:key, "value2"}]
 ```
 
 If you break the convention in the keyword list, Elixir reverts to displaying
@@ -188,7 +188,7 @@ Enter your solution below.
 We can access values in a keyword list by their associated key using square bracket `[key]` syntax where `key` is the atom key.
 
 ```elixir
-keyword_list = [key: "value"]
+keyword_list = [key: "luis", key: "value"]
 
 keyword_list[:key]
 ```

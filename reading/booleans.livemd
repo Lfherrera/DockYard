@@ -180,7 +180,7 @@ We can use non-strict boolean operators `&&` (and), `||` (or), and `!` (not) to 
 Returns the right-hand side value if the left-hand side value is truthy.
 
 ```elixir
-1 && 2
+1 && "Truthy"
 ```
 
 Returns the left-hand side value if it is falsy.

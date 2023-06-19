@@ -264,8 +264,8 @@ tail
 You can access multiple elements at the start of the list separated by commas `,`.
 
 ```elixir
-[one, two | _tail] = [1, 2, 3, 4, 5, 6, 7]
-{one, two}
+[one, two, thr | _tail] = [1, 2, 3, 4, 5, 6, 7]
+{one, two, thr}
 ```
 
 ### Your Turn
@@ -323,6 +323,7 @@ Enter your solution below.
 
 ```elixir
 [a, b, c | _tail] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+{a, b, c}
 ```
 
 ## Further Reading

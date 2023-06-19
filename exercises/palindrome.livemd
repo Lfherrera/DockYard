@@ -85,15 +85,16 @@ defmodule Palindrome do
     iex> Palindrome.palindrome?("apples")
     false
   """
-  def palindrome?(string) do
-    # |> IO.inspect()
-    normal = String.split(string, "", trim: true)
-    # |> IO.inspect()
-    backwards = String.split(String.reverse(string), "", trim: true)
-    # IO.inspect(normal)
-    # IO.inspect(backwards)
-    normal == backwards
-  end
+
+  # def palindrome?(string) do
+  #   # |> IO.inspect()
+  #   normal = String.split(string, "", trim: true)
+  #   # |> IO.inspect()
+  #   backwards = String.split(String.reverse(string), "", trim: true)
+  #   #IO.inspect(normal)
+  #   #IO.inspect(backwards)
+  #   normal == backwards
+  # end
 
   # def palindrome?(string) do
   #   list = String.split(string, "", trim: true)
@@ -103,12 +104,12 @@ defmodule Palindrome do
   #   end) == string
   # end
 
-  # def palindrome?(string) do
-  #   string
-  #   |> String.split("")
-  #   |> Enum.reverse()
-  #   |> Enum.join() == string
-  # end
+  def palindrome?(string) do
+    string
+    |> String.split("")
+    |> Enum.reverse()
+    |> Enum.join() == string
+  end
 end
 ```
 

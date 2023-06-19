@@ -176,7 +176,11 @@ Enter your answer below.
 
 ```elixir
 goal = 40
-pen_Reward = small * 1.6 * 3 + medium * 2 + large * 2 * 0.5
+early_bonus = 1.6
+late_penalty = 0.5
+
+pen_reward = small * early_bonus * 3 + medium * 2 + large * 2 * late_penalty
+# pen_Reward = small * 1.6 * 3 + medium * 2 + large * 2 * 0.5
 ```
 
 ## Bonus: Add Your Own Feature

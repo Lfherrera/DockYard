@@ -152,12 +152,13 @@ Now let's build a number guessing game
 Enter your solution below.
 
 ```elixir
-answer = Enum.random(1..5)
-guess = 4
+answer = Enum.random(1..10)
+guess = -11
+IO.inspect(guess)
 
 cond do
-  guess < answer -> "Too low!"
-  guess > answer -> "Too high!"
+  guess < answer and guess > 0 -> "Too low!"
+  guess > answer and guess < 10 -> "Too high!"
   guess == answer -> "correct!"
   true -> "Bad Input"
 end

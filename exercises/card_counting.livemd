@@ -195,18 +195,20 @@ Enter your solution below.
 random_card1 = Enum.random(1..13)
 random_card2 = Enum.random(1..13)
 random_card3 = Enum.random(1..13)
+IO.inspect("Card 1: #{random_card1} Card 2: #{random_card2} card 3: #{random_card3}")
 
 cards =
   Enum.map([random_card1, random_card2, random_card3], fn random_card ->
     cond do
       random_card <= 6 -> low
       random_card >= 10 -> high
-      true -> normal
+      false -> normal
     end
   end)
 
 Enum.sum(cards)
 
+#
 # Enum.map(1..3, fn _v ->
 #   card = Enum.random(1..13)
 #   cond do

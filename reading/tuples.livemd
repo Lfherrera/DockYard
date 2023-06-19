@@ -166,6 +166,10 @@ jewel
 jewel
 ```
 
+```elixir
+self()
+```
+
 ## Further Reading
 
 Consider the following resource(s) to deepen your understanding of the topic.
