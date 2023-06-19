@@ -154,7 +154,11 @@ defmodule CustomEnum do
   """
   def sum(list_of_integers) do
     Enum.reduce(list_of_integers, fn num, acc ->
-      acc = acc + num
+      if is_integer(num) do
+        acc = acc + num
+      else
+        acc
+      end
     end)
   end
 
@@ -171,7 +175,11 @@ defmodule CustomEnum do
   """
   def join(list_of_strings) do
     Enum.reduce(list_of_strings, "", fn each, acc ->
-      acc <> each
+      if is_bitstring(each) do
+        acc <> each
+      else
+        acc
+      end
     end)
   end
 end
