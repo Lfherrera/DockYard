@@ -74,8 +74,26 @@ defmodule Itinerary do
     
   """
   def has_time?(start, finish, minutes) do
+    # diff = DateTime.diff(start, finish, :minute) |> abs() |>IO.inspect()
+    diff = DateTime.diff(finish, start, :minute) |> IO.inspect(label: "Time diff")
+    IO.inspect("Minutes passed in #{minutes}")
+    # if minutes >= diff, do: true, else: false
+    if diff >= minutes do
+      true
+    else
+      false
+    end
   end
 end
+```
+
+```elixir
+start = ~U[2020-01-01 12:00:00Z]
+finish = ~U[2020-01-01 12:01:00Z]
+minutes = 1
+
+DateTime.diff(finish, start) |> IO.inspect() >=
+  minutes * 60
 ```
 
 ## Commit Your Progress
