@@ -106,6 +106,10 @@ time = ~T[12:30:10]
 datetime = ~U[2000-10-01 12:30:10Z]
 ```
 
+```elixir
+date_az = ~D[2000-10-01]
+```
+
 ## Timezones
 
 Time and timezones can get very complicated. It's not within the scope of this course to delve
@@ -136,7 +140,12 @@ A [DateTime](https://hexdocs.pm/elixir/DateTime.html) struct is a snapshot of a 
 You can retrieve the current [DateTime](https://hexdocs.pm/elixir/DateTime.html) with `DateTime.utc_now/0`.
 
 ```elixir
-DateTime.utc_now()
+time = DateTime.utc_now()
+
+Map.from_struct(time)
+# Calendar.strftime(~U[2023-06-20 10:52:06.0Z], "%B %-d, %Y," ) #"America/Phoenix"
+
+# Calendar.strftime(~U[2023-06-26 13:52:06.0Z], "%c")
 ```
 
 You'll notice a string output similar to `~U[2022-04-27 02:13:29.306614Z]`. This is a sigil.
@@ -324,7 +333,7 @@ DateTime.utc_now()
 Enter your solution below.
 
 ```elixir
-DateTime.utc_now()
+now = DateTime.utc_now()
 ```
 
 Use [DateTime.add/4](https://hexdocs.pm/elixir/DateTime.html#add/4) to add one day to the current [DateTime](https://hexdocs.pm/elixir/DateTime.html). This creates a new [DateTime](https://hexdocs.pm/elixir/DateTime.html) for tomorrow at the current time.
@@ -385,7 +394,7 @@ Enter your solution below.
 dt1 = DateTime.new!(Date.new!(2000, 01, 01), Time.new!(12, 0, 0))
 dt2 = DateTime.new!(Date.new!(2010, 01, 01), Time.new!(12, 0, 0))
 
-# DateTime.diff(dt1, dt2)
+DateTime.diff(dt1, dt2, :second)
 ```
 
 ## Timex
@@ -424,9 +433,9 @@ time_now = DateTime.now!("America/Phoenix") |> IO.inspect()
 local_time = Timex.now("America/Phoenix") |> IO.inspect()
 # Map.from_struct(my_time)
 
-# local_time = :calendar.local_time() 
+# local = :calendar.local_time() 
 # is_tuple(local_time)
-DateTime.compare(time_now, local_time)
+# DateTime.compare(time_now, local_time)
 ```
 
 ## Further Reading

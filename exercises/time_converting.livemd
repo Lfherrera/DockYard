@@ -89,7 +89,14 @@ defmodule TimeConverter do
     86400
 
   """
+
   def to_seconds(amount, unit) do
+    case unit do
+      :seconds -> amount
+      :minutes -> amount * 60
+      :hours -> amount * 60 * 60
+      :days -> amount * 60 * 60 * 24
+    end
   end
 
   @doc """
@@ -112,11 +119,21 @@ defmodule TimeConverter do
 
   """
   def from_seconds(amount, unit) do
+    case unit do
+      :seconds -> amount / amount
+      :minutes -> amount / 60
+      :hours -> amount / 60 / 60
+      :days -> amount / 60 / 60 / 24
+    end
   end
 end
 ```
 
 ## Commit Your Progress
+
+```elixir
+3600 / 60 / 60
+```
 
 DockYard Academy now recommends you use the latest [Release](https://github.com/DockYard-Academy/curriculum/releases) rather than forking or cloning our repository.
 
