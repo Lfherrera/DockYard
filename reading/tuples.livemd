@@ -106,6 +106,7 @@ The coercion to match is less obvious with a simple variable name, because it's 
 my_tuple = {1, 2, 3}
 list = Tuple.to_list(my_tuple)
 hd_list = hd(list)
+# tl = tl(list)
 ```
 
 However, we can bind other values inside of a container data type, so the left and right side still match.
@@ -164,10 +165,16 @@ jewel
 ```elixir
 {_gold, _treasure, jewel} = {"gold", "treasure", "jewel"}
 jewel
+
+my_tuple = {"gold", "treasure", "jewel", ""}
+# does not add elements only updates them
+updated_tuple = put_elem(my_tuple, 3, "Luis")
+tuple_size(updated_tuple)
+lh_test = Tuple.append(updated_tuple, "test")
 ```
 
 ```elixir
-self()
+255 * 255
 ```
 
 ## Further Reading

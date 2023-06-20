@@ -306,6 +306,9 @@ Enter your solution below.
 ```elixir
 [a | _tail] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 a
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+new_list = ["luis" | list]
+# 13 in(new_list)
 ```
 
 Bind `1` and `2`, and `3` in the following list to variables `a`, `b`, and `c` using pattern matching.

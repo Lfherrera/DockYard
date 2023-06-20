@@ -267,7 +267,7 @@ todo = %{title: "finish maps exercise", completed: false}
 </details>
 
 ```elixir
-todo = %{:title => "finish maps exercises", :complete => false}
+todo = %{:title => "finish maps exercises", complete: false}
 %{todo | complete: true}
 ```
 

@@ -142,6 +142,15 @@ else
 end
 ```
 
+```elixir
+t = Enum.random(5..100) |> IO.inspect()
+if t > 50, do: :hot, else: :cold
+
+map1 = %{a: "luis", b: 2, c: %{"a" => "test", "r" => "R value"}}
+
+map2 = %{map1[:c] | "r" => "upated R va"}
+```
+
 ## Clear Control Flow
 
 Control flow impacts the complexity of a program. The more branching paths we have in our program, the more complex it is.
