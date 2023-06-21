@@ -77,12 +77,13 @@ defmodule Itinerary do
     # diff = DateTime.diff(start, finish, :minute) |> abs() |>IO.inspect()
     diff = DateTime.diff(finish, start, :minute) |> IO.inspect(label: "Time diff")
     IO.inspect("Minutes passed in #{minutes}")
-    # if minutes >= diff, do: true, else: false
-    if diff >= minutes do
-      true
-    else
-      false
-    end
+    # diff >= minutes
+    if diff >= minutes, do: true, else: false
+    #   if diff >= minutes do
+    #     true
+    #   else 
+    #     false
+    #   end
   end
 end
 ```

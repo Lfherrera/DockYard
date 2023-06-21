@@ -90,12 +90,13 @@ defmodule TimeConverter do
 
   """
 
-  def to_seconds(amount, unit) do
+  def to_seconds(amount \\ 1, unit \\ :secounds) do
     case unit do
       :seconds -> amount
       :minutes -> amount * 60
       :hours -> amount * 60 * 60
       :days -> amount * 60 * 60 * 24
+      _ -> IO.puts("Invalid input!")
     end
   end
 
@@ -124,13 +125,14 @@ defmodule TimeConverter do
       :minutes -> amount / 60
       :hours -> amount / 60 / 60
       :days -> amount / 60 / 60 / 24
+      _ -> IO.puts("Invalid input!")
     end
   end
 end
 ```
 
 ```elixir
-
+TimeConverter.to_seconds()
 ```
 
 ## Commit Your Progress

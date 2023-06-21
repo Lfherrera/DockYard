@@ -121,6 +121,10 @@ defmodule Timeline do
     [9, 12, 2]
   """
   def from_dates(dates) do
+    # dates
+    # |> Enum.reduce([], fn [f, s], acc ->  [Date.diff(s, f) | acc]
+    # end) |> Enum.reverse()
+
     dates
     |> Enum.chunk_every(2, 1, :discard)
     |> Enum.map(fn [dt1, dt2] -> Date.diff(dt2, dt1) end)
