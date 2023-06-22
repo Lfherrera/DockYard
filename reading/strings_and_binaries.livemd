@@ -113,7 +113,7 @@ We've already seen we can find the code point of a character using `?` in Elixir
 
 ```elixir
 ?h
-?
+? 
 ```
 
 Here we can see a table of alphabetical characters and their code points. Notice that capital letters and
@@ -199,7 +199,7 @@ uses two bytes.
 
 ```elixir
 byte_size("é")
-bit_size("é")
+# bit_size("é")
 ```
 
 UTF-8 also uses graphemes. Graphemes may consist of multiple characters perceived as one.
@@ -388,7 +388,7 @@ Charlists are a list of integers, so they can be enumerated through and will ret
 charlist. Here's how we could shift each character up one code point.
 
 ```elixir
-Enum.map('abcde', fn each -> each + 1 end)
+Enum.map('yabcde', fn each -> each + 5 end)
 ```
 
 You can convert a charlist back into a string with [List.to_string/1](https://hexdocs.pm/elixir/List.html#to_string/1).

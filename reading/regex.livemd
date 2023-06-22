@@ -160,7 +160,7 @@ We can find a match which repeats zero or more times with `*`.
 `A*` would match all strings containing zero or more `A`s.
 
 ```elixir
-Regex.scan(~r/1*/, "1121")
+Regex.scan(~r/2*/, "1121")
 ```
 
 `+` will match on strings that match one or more of the previous regular expressions.
@@ -288,7 +288,7 @@ make it easier to pipe functions together.
 ```elixir
 "1234"
 |> String.replace(~r/\d/, fn each -> "#{String.to_integer(each) + 1}" end)
-|> String.replace(~r/\d/, fn each -> each <> " " end)
+|> String.replace(~r/\d/, fn each -> each end)
 ```
 
 ## Capture Groups
@@ -361,7 +361,13 @@ end)
 </details>
 
 ```elixir
-
+Regex.replace(~r/(\d{3}-)(\d{3}-\d{4})/, "999-999-9999", fn match, group1, group2 ->
+  IO.inspect(match, label: "match")
+  IO.inspect(group1, label: "group1")
+  IO.inspect(group2, label: "group2")
+  # IO.inspect(group3, label: "group3")
+  group1 <> "XXX-XXXX"
+end)
 ```
 
 ## Options
@@ -463,7 +469,25 @@ end)
 </details>
 
 ```elixir
+phone_num = "#9999999999"
+Regex.scan(~r/(?<=#)\d{10}/, phone_num)
 
+Regex.replace(~r/\#(\d{3})(\d{3})(\d{4})/, phone_num, fn _ph, gp1, gp2, gp3 ->
+  "#{gp1}-#{gp2}-#{gp3}"
+  # Enum.chunk_every(x,3,1)  
+end)
+
+# Regex.replace(~r/(\d{3}-)(\d{3}-\d{4})
+
+# (~r/\d{3}-(\d{3}-\d{4})
+
+# Regex.replace(~r/(\d{3}-)(\d{3}-\d{4})/,"999-999-9999", fn match, group1, group2 ->
+#   IO.inspect(match, label: "match")
+#   IO.inspect(group1, label: "group1")
+#   IO.inspect(group2, label: "group2")
+#   #IO.inspect(group3, label: "group3")
+#   group1 <> "XXX-XXXX"
+# end)
 ```
 
 ## Further Reading
