@@ -178,6 +178,10 @@ Recursion allows us to accomplish **enumeration** by traversing through data str
 Here's an example of a recursive function `sum/2` that traverses through a list and preserves an accumulator. It looks at every element in the list and adds it to the current accumulator to calculate the sum of all of the elements in the list. When the list is empty, it returns the final accumulator.
 
 ```elixir
+
+```
+
+```elixir
 defmodule RecursiveSum do
   def sum(list, accumulator \\ 0) do
     case list do
@@ -346,7 +350,7 @@ defmodule CountBetween do
   end
 end
 
-CountBetween.count(10, 10)
+CountBetween.count(20, 10)
 ```
 
 ## Commit Your Progress
