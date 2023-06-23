@@ -215,7 +215,6 @@ arthur = %{
 }
 
 family_tree = arthur
-# Enum.each(family_tree, fn {key, value} -> IO.puts(value) end)
 ```
 
 ## Commit Your Progress

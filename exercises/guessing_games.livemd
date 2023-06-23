@@ -54,13 +54,13 @@ Enter your solution below.
 guess = "Turkey"
 answer = "Turkey"
 
-if guess == answer do
-  IO.puts("Correct!")
-else
-  IO.puts("Incorrect.")
-end
+# if guess == answer do
+#   IO.puts("Correct!")
+# else
+#   IO.puts("Incorrect.")
+# end
 
-# guess == answer && "Correct!" || "Incorrect"
+(guess == answer && "Correct!") || "Incorrect"
 ```
 
 ## Bonus: Guess The Random Word

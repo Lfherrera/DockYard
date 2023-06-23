@@ -265,7 +265,7 @@ You can access multiple elements at the start of the list separated by commas `,
 
 ```elixir
 [one, two, thr | _tail] = [1, 2, 3, 4, 5, 6, 7]
-{one, two, thr}
+# {one, two, thr}
 ```
 
 ### Your Turn
@@ -308,7 +308,11 @@ Enter your solution below.
 a
 list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 new_list = ["luis" | list]
-# 13 in(new_list)
+ 13 in(new_list)
+List.duplicate(new_list,2)
+List.foldl(new_list, 0 , fn x, acc ->  x + acc end)
+
+List.foldl([1, 2, 3, 8], 0, fn x, acc -> x + acc end)  start from left and reduces to end of list 
 ```
 
 Bind `1` and `2`, and `3` in the following list to variables `a`, `b`, and `c` using pattern matching.

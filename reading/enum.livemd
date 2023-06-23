@@ -164,7 +164,7 @@ end
 ```
 
 ```elixir
-Enum.reduce(1..3, fn el, acc -> acc + el end)
+Enum.reduce(1..3, fn element, acc -> acc + element end)
 ```
 
 ## Scenario
@@ -184,7 +184,7 @@ shopping_cart = [100, 200, 150, 200]
 We can create a function that will calculate the after tax cost of an item called `calculate_tax/1`. Lets say that the tax is `5%` so we can multiply our cost by `1.05`.
 
 ```elixir
-calculate_tax = fn cost -> cost * 1.05 end
+# calculate_tax = fn cost -> cost * 1.05 end
 ```
 
 With four items in our shopping list, it's a bit tedius to call the `calculate_tax/1` function on each item. We'd need to bind each item to a variable and call the `calculate_tax/1` function on each item individually to determine the after tax cost of each item.
@@ -199,6 +199,7 @@ This only works when there are exactly four items. If we want to handle when the
 
 ```elixir
 shopping_cart = [100, 200, 150]
+calculate_tax = fn cost -> cost * 1.05 end
 
 case shopping_cart do
   [] ->

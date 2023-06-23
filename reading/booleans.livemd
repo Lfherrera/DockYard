@@ -307,14 +307,18 @@ c --false--> l[You lose!]
 Here's how we could write this in code. Try changing `guess` to `:heads` to win the coin flip game.
 
 ```elixir
-coin = :heads
-guess = :tails
+coin = Enum.random([:head, :tail])
+guess = Enum.random([:head, :tail])
 
-if coin == guess do
-  "You win!"
-else
-  "You lose!"
-end
+IO.inspect("coin: #{coin} guess #{guess}")
+
+(coin == guess && "You Win!") || "You Lose!"
+
+# if coin == guess do
+#   "You win!"
+# else
+#   "You lose!"
+# end
 ```
 
 ## Further Reading

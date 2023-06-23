@@ -51,7 +51,7 @@ iex> input
 Keep in mind, this will work when running an Elixir project or in the [IEx](https://hexdocs.pm/iex/IEx.html) shell, but will fail with an `:enotsup` (error not supported) error when we run it from Livebook.
 
 ```elixir
-IO.gets("I will fail!")
+username = IO.gets("I will fail!\n")
 ```
 
 That's because there is no command line or other device to retrieve user input from.
@@ -69,6 +69,11 @@ iex> input = IO.gets("Give me some input: ")
 ```
 
 ## Commit Your Progress
+
+```elixir
+IO.puts("Name please? ")
+IO.getn()
+```
 
 DockYard Academy now recommends you use the latest [Release](https://github.com/DockYard-Academy/curriculum/releases) rather than forking or cloning our repository.
 

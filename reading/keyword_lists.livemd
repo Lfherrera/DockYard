@@ -177,10 +177,11 @@ In the Elixir cell below, create a keyword list of your favourite super hero. In
 Enter your solution below.
 
 ```elixir
-[name: "wolverine", secret_identity: "James Howlett"] ++
-  [name: "Thanos", secret_identity: "Mad Titan"]
+superheros =
+  [name: "wolverine", secret_identity: "James Howlett"] ++
+    [name: "Thanos", secret_identity: "Mad Titan"]
 
-# superheros[:name]
+superheros[:name]
 ```
 
 ## Accessing A Key

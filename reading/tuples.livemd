@@ -112,7 +112,7 @@ hd_list = hd(list)
 However, we can bind other values inside of a container data type, so the left and right side still match.
 
 ```elixir
-{one, two, three} = {1, 2, 3}
+{one, two, _} = {1, 2, 3}
 ```
 
 Now we can use these bound variables `one`, `two`, and `three` in our program.
@@ -143,6 +143,10 @@ If we want to bind some of the variables in a tuple, and ignore others, we can u
 {one, _two, three} = {1, 2, 3}
 ```
 
+```elixir
+
+```
+
 You can pattern match with any kind of data. So long as the left side matches the right side. We'll cover pattern matching with other data structures in later reading material.
 
 <!-- livebook:{"break_markdown":true} -->
@@ -169,8 +173,13 @@ jewel
 my_tuple = {"gold", "treasure", "jewel", ""}
 # does not add elements only updates them
 updated_tuple = put_elem(my_tuple, 3, "Luis")
-tuple_size(updated_tuple)
-lh_test = Tuple.append(updated_tuple, "test")
+
+new_tuple = Tuple.append(updated_tuple, "test")
+
+last_tuple = Tuple.insert_at(new_tuple, 0, 10)
+
+# most used
+Tuple.to_list(last_tuple)
 ```
 
 ```elixir

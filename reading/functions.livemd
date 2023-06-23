@@ -493,7 +493,7 @@ call_with_2 = fn callback -> callback.(2) end
 We can then use the `call_with_2/1` higher order function with an `add_three/1` callback function. This calls `add_three/1` with `2` to return `5`.
 
 ```elixir
-add_three = fn int -> int + 3 end
+add_three = fn int -> int * 3 end
 # the add_three 'int' params will become/take-in the call_back function,which just "take num 2
 call_with_2.(add_three)
 ```

@@ -434,7 +434,7 @@ In the Elixir cell below, Use the `**` operator to determine `10` to the power o
 </details>
 
 ```elixir
-10 ** 214
+10 ** 2
 ```
 
 ## BEDMAS

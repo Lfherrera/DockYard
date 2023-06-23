@@ -151,6 +151,13 @@ map1 = %{a: "luis", b: 2, c: %{"a" => "test", "r" => "R value"}}
 map2 = %{map1[:c] | "r" => "upated R va"}
 ```
 
+```elixir
+my = [1, 2, 2, 3, 4, 4, 6, 7, 7]
+
+# remember that the passed in function '&(rem(&1,2) ==1) evaluates each element true or false.
+Enum.chunk_by([1, 2, 2, 3, 4, 4, 6, 7, 7], &(rem(&1, 2) == 1))
+```
+
 ## Clear Control Flow
 
 Control flow impacts the complexity of a program. The more branching paths we have in our program, the more complex it is.
@@ -214,11 +221,16 @@ Here's how we translate that into code. This is significantly more straightforwa
 weather = :sunny
 
 case weather do
+  _ -> true
   :sunny -> "t-shirt"
   :snowing -> "thick coat"
   :raining -> "raincoat"
   :foggy -> "something bright"
 end
+```
+
+```elixir
+
 ```
 
 ### Case Breakdown

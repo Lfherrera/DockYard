@@ -110,6 +110,26 @@ defmodule Fibonacci do
 end
 ```
 
+```elixir
+defmodule Fib do
+  # ----------------- most performant solution 
+  def other_of(0), do: 0
+  def other_of(1), do: 1
+
+  def other_of(n) do
+    other_of(n, [1, 0])
+  end
+
+  defp other_of(0, [p, pp]), do: p + pp
+
+  defp other_of(n, [p, pp]) do
+    other_of(n - 1, [pp + p, p])
+  end
+end
+
+Fib.other_of(500_000)
+```
+
 ## Commit Your Progress
 
 DockYard Academy now recommends you use the latest [Release](https://github.com/DockYard-Academy/curriculum/releases) rather than forking or cloning our repository.
