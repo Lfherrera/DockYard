@@ -163,7 +163,7 @@ defmodule TicTacToe do
   """
   def at(board, coordinate) do
     {x, y} = coordinate
-    # |> IO.inspect(lable: "y coordinate")
+    # |> IO.inspect(label: "y coordinate")
     row_to_up = Enum.at(board, 2 - y)
     # |> IO.inspect(label: "letter at coordinate")
     Enum.at(row_to_up, x)

@@ -90,7 +90,7 @@ defmodule TimeConverter do
 
   """
 
-  def to_seconds(amount \\ 1, unit \\ :secounds) do
+  def to_seconds(amount \\ 1, unit \\ :seconds) do
     case unit do
       :seconds -> amount
       :minutes -> amount * 60

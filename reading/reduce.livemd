@@ -228,7 +228,7 @@ defmodule LuisH do
 
   def reverse([], acc), do: acc
 
-  # patter match on 'input', do: -> calls back it's self adding each head element to accumiliator
+  # pattern match on 'input', do: -> calls back it's self adding each head element to accumiliator
 
   def reverse([h | t], acc), do: reverse(t, [h | acc])
 

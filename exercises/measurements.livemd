@@ -70,7 +70,7 @@ Implement the `Measurements` module according to the documented function example
 
 ```elixir
 defmodule Test do
-  # Tail Recursion funciton - these are fastest
+  # Tail Recursion function - these are fastest
   def upto_tail_rec(num, acc \\ 0)
   def upto_tail_rec(0, acc), do: acc
 
@@ -88,7 +88,7 @@ defmodule Test do
     reverse_num(new_num, new_acc)
   end
 
-  # Recursion funciton
+  # Recursion function
   def upto(0), do: 0
 
   def upto(num) do

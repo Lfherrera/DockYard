@@ -273,6 +273,10 @@ end
 ModuleB.run()
 ```
 
+```elixir
+am
+```
+
 In your `hello_world` application, create a new module, `HelloWorld.Name` in a `lib/name.ex` file, which will return a random name.
 
 ```elixir

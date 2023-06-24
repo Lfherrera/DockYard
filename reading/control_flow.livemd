@@ -148,7 +148,7 @@ if t > 50, do: :hot, else: :cold
 
 map1 = %{a: "luis", b: 2, c: %{"a" => "test", "r" => "R value"}}
 
-map2 = %{map1[:c] | "r" => "upated R va"}
+map2 = %{map1[:c] | "r" => "updated R value"}
 ```
 
 ```elixir
