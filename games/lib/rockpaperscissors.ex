@@ -11,7 +11,7 @@ defmodule Games.RockPaperScissors do
       beats?(input, ai_choice) -> "You win! #{input} beats #{ai_choice}."
       beats?(ai_choice, input) -> "You lose! #{ai_choice} beats #{input}."
     end
-
+    # refactor code above
     # case {ai_choice, input} do
     #   {"rock", "paper"} -> "You win! #{input} beats rocks."
     #   {"paper", "scissors"} -> "You win! #{input} beats paper."
