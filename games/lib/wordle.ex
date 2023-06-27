@@ -24,4 +24,13 @@ defmodule Games.Wordle do
       end
     end)
   end
+
+  def play() do
+    player_guess = IO.gets("Enter a five letter word:  ") |> String.trim()
+    five_letter_word =  Enum.random(["toast", "tarts", "hello", "beats"]) |> IO.inspect()
+
+    feedback(five_letter_word, player_guess)
+
+  end
+
 end
