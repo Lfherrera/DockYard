@@ -1,4 +1,5 @@
 defmodule Games.RockPaperScissors do
+  @spec play() :: String.t()
   def play() do
     ai_choice = Enum.random(["rock", "paper", "scissors"])
     IO.inspect(ai_choice, label: "AI choice")
@@ -22,7 +23,7 @@ defmodule Games.RockPaperScissors do
     #   {_a, _b} -> "It's a tie"
     # end
   end
-
+  @spec beats?(String.t(), String.t()) :: true | false
   defp beats?(player1, player2) do
     {player1, player2} in [{"rock", "scissors"}, {"paper", "rock"},{"scissors", "paper"} ]
     #refactor case using in

@@ -1,4 +1,5 @@
 defmodule Games.Wordle do
+  @spec feedback(String.t(), String.t()) :: [atom()]
   def feedback(answer, guess) do
     answer_list = String.split(answer, "", trim: true)
     guess_list = String.split(guess, "", trim: true)
@@ -24,7 +25,7 @@ defmodule Games.Wordle do
       end
     end)
   end
-
+  @spec play() :: String.t()
   def play() do
     player_guess = IO.gets("Enter a five letter word:  ") |> String.trim()
     five_letter_word =  Enum.random(["toast", "tarts", "hello", "beats"]) |> IO.inspect()
