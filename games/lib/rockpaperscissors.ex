@@ -4,7 +4,7 @@ defmodule Games.RockPaperScissors do
     ai_choice = Enum.random(["rock", "paper", "scissors"])
     IO.inspect(ai_choice, label: "AI choice")
     input = IO.gets("(rock/paper/scissors):\ ") |> String.trim()
-    #input = String.replace(input,~r/\r|\n/, "")
+    # input = String.replace(input,~r/\r|\n/, "")
     IO.inspect(input, label: "input")
 
     cond do
@@ -12,6 +12,7 @@ defmodule Games.RockPaperScissors do
       beats?(input, ai_choice) -> "You win! #{input} beats #{ai_choice}."
       beats?(ai_choice, input) -> "You lose! #{ai_choice} beats #{input}."
     end
+
     # refactor code above
     # case {ai_choice, input} do
     #   {"rock", "paper"} -> "You win! #{input} beats rocks."
@@ -23,10 +24,11 @@ defmodule Games.RockPaperScissors do
     #   {_a, _b} -> "It's a tie"
     # end
   end
+
   @spec beats?(String.t(), String.t()) :: true | false
   defp beats?(player1, player2) do
-    {player1, player2} in [{"rock", "scissors"}, {"paper", "rock"},{"scissors", "paper"} ]
-    #refactor case using in
+    {player1, player2} in [{"rock", "scissors"}, {"paper", "rock"}, {"scissors", "paper"}]
+    # refactor case using in
     # case {player1, player2} do
     # {"rock", "scissors"} -> true
     # {"paper", "rock"} -> true
