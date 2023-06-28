@@ -20,6 +20,7 @@ defmodule Greeting do
   defp response({opts, word}) do
     if opts[:upcase] do
       String.upcase(word)
+      #|> String.reverse()
     else
       word
     end
