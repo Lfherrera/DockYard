@@ -8,9 +8,9 @@ defmodule Games.RockPaperScissors do
     IO.inspect(input, label: "input")
 
     cond do
-      ai_choice == input -> "It's a tie!"
-      beats?(input, ai_choice) -> "You win! #{input} beats #{ai_choice}."
-      beats?(ai_choice, input) -> "You lose! #{ai_choice} beats #{input}."
+      ai_choice == input -> IO.puts(IO.ANSI.yellow() <> "It's a tie!" <> IO.ANSI.reset())
+      beats?(input, ai_choice) -> IO.puts(IO.ANSI.green() <> "You win! #{input} beats #{ai_choice}." <> IO.ANSI.reset())
+      beats?(ai_choice, input) -> IO.puts(IO.ANSI.red() <> "You lose! #{ai_choice} beats #{input}." <> IO.ANSI.reset())
     end
 
     # refactor code above

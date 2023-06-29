@@ -24,14 +24,16 @@ defmodule Games.Wordle do
       true -> :yellow
       end
     end)
+   # |> IO.inspect()
   end
-  @spec play() :: String.t()
+
+  @spec play :: [atom]
   def play() do
     player_guess = IO.gets("Enter a five letter word:  ") |> String.trim()
     #if String.length(player_guess) > 5, do: "Word has more then 5 letters"
     #check = String.length(player_guess)
     #if check > 5 do
-    five_letter_word =  Enum.random(["toast", "tarts", "hello", "beats"]) |> IO.inspect()
+    five_letter_word =  Enum.random(["toast", "tarts", "hello", "beats"]) |> IO.puts()
 
     feedback(five_letter_word, player_guess)
 
