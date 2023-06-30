@@ -26,7 +26,7 @@ defmodule Games.RockPaperScissors do
   end
 
   @spec beats?(String.t(), String.t()) :: true | false
-  defp beats?(player1, player2) do
+  def beats?(player1, player2) do
     {player1, player2} in [{"rock", "scissors"}, {"paper", "rock"}, {"scissors", "paper"}]
     # refactor case using in
     # case {player1, player2} do

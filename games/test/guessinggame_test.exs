@@ -4,10 +4,10 @@ defmodule Games.GuessingGameTest do
 	alias Games.GuessingGame
 
 	test "winner/2 WIN" do
-		assert Games.GuessingGame.check_for_winner(8,8) == true
+		assert Games.GuessingGame.check_for_winner(8,8) == "You win!"
 	end
 
 	test "winner/2 LOSER" do
-		assert Games.GuessingGame.check_for_winner(8,7) == false
+		assert Games.GuessingGame.check_for_winner(8,7) == "Incorrect!"
 	end
 end
