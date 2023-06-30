@@ -72,8 +72,18 @@ defmodule Replace do
   [1, 2, 3, 4, "5"]
   """
   def nils(list1, list2) do
+    Enum.zip(list1, list2)
+    |> Enum.map(fn
+      {nil, each2} -> each2
+      {each1, _} -> each1
+    end)
   end
 end
+```
+
+```elixir
+list1 = [1, 2, 3, nil, 5]
+list2 = ["1", "2", "3", "4", "5"]
 ```
 
 ## Commit Your Progress

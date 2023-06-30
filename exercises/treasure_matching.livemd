@@ -49,9 +49,12 @@ jewel
 Use pattern matching to bind a `jewel` variable to the `"jewel"` string. Each cell should return the `jewel` variable to prove it was bound correctly.
 
 ```elixir
+# [1, 2, 3, "jewel"] 
 case [1, 2, 3, "jewel"] do
   [_, _, _, jewel] -> jewel
 end
+
+[_, _, _, jewel] = [1, 2, 3, "jewel"]
 ```
 
 ```elixir
@@ -104,8 +107,8 @@ value
 ```
 
 ```elixir
-[_, _ | t] = List.flatten([[], [1, [2, "jewel"]]])
-t
+[_, _, jewel] = List.flatten([[], [1, [2, "jewel"]]])
+jewel
 # [h | t] = [[], [1, [2, "jewel"]]]
 ```
 
@@ -140,7 +143,7 @@ value
 ```
 
 ```elixir
-# [south: value, east: {1, 2} ] =  [south: "jewel", east: {1, 2}]
+[south: value, east: {1, 2}] = [south: "jewel", east: {1, 2}]
 value
 ```
 
@@ -181,12 +184,20 @@ end
 ```elixir
 defmodule Sum do
   @moduledoc """
-  iex> Sum.list([1, 2, 3])
+  iex> Sum.sum([1, 2, 3])
   6
   """
-  def list(list, acc \\ 0)
-  def list([], acc), do: acc
-  def list([h | t], acc), do: list(t, acc + h)
+
+  # def sum(list, acc \\ 0)
+  # def sum([], acc), do: acc
+  # def sum([h | t], acc), do: sum(t, acc + h)
+
+  def sum(list, acc \\ 0) do
+    case list do
+      [] -> acc
+      [h | t] -> sum(t, acc + h)
+    end
+  end
 end
 ```
 
