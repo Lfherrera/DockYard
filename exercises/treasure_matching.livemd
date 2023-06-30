@@ -49,79 +49,109 @@ jewel
 Use pattern matching to bind a `jewel` variable to the `"jewel"` string. Each cell should return the `jewel` variable to prove it was bound correctly.
 
 ```elixir
-[1, 2, 3, "jewel"]
+case [1, 2, 3, "jewel"] do
+  [_, _, _, jewel] -> jewel
+end
 ```
 
 ```elixir
-%{key1: "value", key2: "jewel"}
+# map_value = %{key1: "value", key2: "jewel"}
+# v1 = map_value.key2
+
+%{key1: "value", key2: value} = %{key1: "value", key2: "jewel"}
+value
 ```
 
 ```elixir
-%{1 => "jewel"}
+# string_map = %{1 => "jewel"}
+# sv = string_map[1]
+
+%{1 => value} = %{1 => "jewel"}
+value
 ```
 
 ```elixir
-%{%{key: [1, 2, 3, 4, 5, {}]} => "jewel"}
+%{%{key: [1, 2, 3, 4, 5, {}]} => value} = %{%{key: [1, 2, 3, 4, 5, {}]} => "jewel"}
+value
 ```
 
 ```elixir
-%{north: %{south: %{west: %{east: "jewel"}}}}
+# nested = %{north: %{south: %{west: %{east: "jewel"}}}}
+# nested_key_values = nested[:north][:south][:west][:east]
+
+%{north: %{south: %{west: %{east: value}}}} = %{north: %{south: %{west: %{east: "jewel"}}}}
+value
 ```
 
 ```elixir
-[2, "jewel"]
+[v1, v2] = [2, "jewel"]
+v2
 ```
 
 ```elixir
-["jewel", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[h | t] = ["jewel", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+h
 ```
 
 ```elixir
-[1, "jewel", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[_, value | t] = [1, "jewel", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+value
 ```
 
 ```elixir
-[1, 2, "jewel", 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[_, _, value | t] = [1, 2, "jewel", 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+value
 ```
 
 ```elixir
-[[], [1, [2, "jewel"]]]
+[_, _ | t] = List.flatten([[], [1, [2, "jewel"]]])
+t
+# [h | t] = [[], [1, [2, "jewel"]]]
 ```
 
 ```elixir
-"here is the jewel"
+"here is the " <> value = "here is the jewel"
+value
 ```
 
 ```elixir
-{"jewel"}
+{v} = {"jewel"}
+v
 ```
 
 ```elixir
-{"jewel", 1}
+{v, _} = {"jewel", 1}
+v
 ```
 
 ```elixir
-{1, 2, "jewel"}
+{_, _, value} = {1, 2, "jewel"}
+value
 ```
 
 ```elixir
-["jewel"] ++ Enum.to_list(1..100)
+[value | t] = ["jewel"] ++ Enum.to_list(1..100)
+value
 ```
 
 ```elixir
-[key: "jewel"]
+[key: value] = [key: "jewel"]
+value
 ```
 
 ```elixir
-[south: "jewel", east: {1, 2}]
+# [south: value, east: {1, 2} ] =  [south: "jewel", east: {1, 2}]
+value
 ```
 
 ```elixir
-Enum.map(1..4, fn each -> (each == 2 && "jewel") || each end)
+[_, value | t] = Enum.map(1..4, fn each -> (each == 2 && "jewel") || each end)
+value
 ```
 
 ```elixir
-Enum.map(1..4, &((&1 > 3 && "jewel") || &1))
+[_, _, h | t] = Enum.map(1..4, &((&1 > 3 && "jewel") || &1))
+t
 ```
 
 ## Sum
@@ -154,6 +184,9 @@ defmodule Sum do
   iex> Sum.list([1, 2, 3])
   6
   """
+  def list(list, acc \\ 0)
+  def list([], acc), do: acc
+  def list([h | t], acc), do: list(t, acc + h)
 end
 ```
 

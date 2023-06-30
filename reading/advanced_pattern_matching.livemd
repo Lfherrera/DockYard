@@ -193,7 +193,7 @@ defmodule Check do
   end
 
   # the last test fails
-  #   def must_have_elements!(list ) do
+  #   def must_have_elements!(list) do
   #   [h | t] = list 
   #   IO.inspect(h)
   #   IO.inspect(t)
@@ -305,7 +305,8 @@ defmodule Greeter do
   def hello(names) do
     case names do
       [_] -> "Hi #{names}!"
-      [_, _] -> "Hi" <> List.first(names) <> ", Hello " <> List.last(names) <> "!"
+      # [_,_] -> "Hi " <> List.first(names) <> ", Hello "<> List.last(names) <> "!"
+      [_, _] -> "Hi #{Enum.at(names, 0)}, Hello #{Enum.at(names, 1)}!"
       [_, _, _] -> "Hello everyone!"
     end
   end
