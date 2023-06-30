@@ -2,10 +2,19 @@ defmodule Games.GuessingGame do
   @spec play() :: String.t()
   def play() do
     guess = IO.gets("Guess a number between 1 and 10:\ ") |> String.trim() |> String.to_integer()
-    #guess = String.replace(guess,~r/\r|\n/, "")
+    # guess = String.replace(guess,~r/\r|\n/, "")
     number_generator = Enum.random(1..10)
+
     IO.inspect("#{number_generator}", label: "Random number")
     IO.inspect("#{guess}", label: "guess number")
-        if guess == number_generator, do: IO.puts(IO.ANSI.green() <> "You win!" <> IO.ANSI.reset()), else: IO.puts(IO.ANSI.red() <> "Incorrect!" <> IO.ANSI.reset())
+    check_for_winner(guess, number_generator)
+
+    # if guess == number_generator, do: IO.puts(IO.ANSI.green() <> "You win!" <> IO.ANSI.reset()), else: IO.puts(IO.ANSI.red() <> "Incorrect!" <> IO.ANSI.reset())
+  end
+
+  def check_for_winner(guess, number_generator) do
+    if guess == number_generator,
+      do: IO.puts(IO.ANSI.green() <> "You win!" <> IO.ANSI.reset()),
+      else: IO.puts(IO.ANSI.red() <> "Incorrect!" <> IO.ANSI.reset())
   end
 end
