@@ -1,6 +1,66 @@
 {
-    "cSpell.enabled": true,
-    "cSpell.enableFiletypes": [
-        "livemarkdown"
+    "elixirLS.suggestSpecs": false,
+    "elixirLS.dialyzerEnabled": true,
+    "elixirLS.signatureAfterComplete": false,
+    "elixirLS.fetchDeps": false,
+    "files.associations": {
+        "*.heex": "phoenix-heex"
+    },
+    "[elixir]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    },
+    "[phoenix-heex]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    },
+    "tailwindCSS.includeLanguages": {
+        "elixir": "html",
+        "phoenix-heex": "html"
+    },
+    "emmet.includeLanguages": {
+        "elixir": "html",
+        "phoenix-heex": "html"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "files.exclude": {
+        // ".elixir_ls/**/*": true,
+        // "**/.env*": false,
+        // "**/*.plt": true,
+        // "**/*.plt.hash": true,
+        // "**/*.pem": true,
+        // "etl/*.csv": true,
+        // "etl/*.txt": true,
+        // "etl/*.gz": true,
+        // "priv/too_large/": true,
+        // "_build/": true,
+        // "cover/": true,
+        // "deps/": true,
+        // "doc/": true,
+        // ".fetch": true,
+        // "**/erl_crash.dump": true,
+        // "**/*.ez": true,
+        // "tmp/": true,
+        // "**/reservations-*.tar": true,
+        // "priv/static/assets/": true,
+        // "priv/static/cache_manifest.json": true,
+        // "**/npm-debug.log": true,
+        // "assets/node_modules/": true,
+        // "**/.vscode/": true,
+        "**/.elixir_ls/": true
+    },
+    "autoHide.autoHideSideBar": false,
+    "autoHide.autoHidePanel": false,
+    "workbench.colorTheme": "Visual Studio 2019 Dark",
+    "workbench.colorCustomizations": {
+    
+    },
+    "debug.console.fontSize": 10,
+    "terminal.integrated.fontSize": 10,
+    "interactiveSession.editor.fontSize": 10,
+    "scm.inputFontSize": 12,
+    "editor.fontSize": 13,
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "master"
     ]
 }
