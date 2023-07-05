@@ -64,20 +64,38 @@ defmodule User do
   """
   defstruct [:name]
 
-  def validate_users(users) do
-    Enum.map(users, fn user ->
-      with %User{name: name} <- user, true <- {:missing_name, is_binary(name)} do
-        {:ok, user}
-      else
-        false ->
-          {:error, :missing_name}
-
-        _ ->
-          {:e}
-          IO.inspect(thing)
-          :error
-      end
+  def validate_users(users) when is_list(users) do
+    Enum.map(users, fn each ->
+      # demo(each)
+      check(each)
     end)
+  end
+
+  defp check(%User{} = user) do
+    with {:check_nil, true} <- {:check_nil, user.name != nil},
+         {:length, true} <- {:length, String.length(user.name) > 1} do
+      {:ok, user}
+    else
+      {:check_nil, false} -> {:error, :missing_name}
+      {:length, false} -> {:error, :missing_name}
+    end
+  end
+
+  defp check(_user) do
+    {:error, :not_a_user}
+  end
+
+  defp demo(%User{} = user) do
+    with true <- user.name != nil,
+         true <- String.length(user.name) > 1 do
+      {:ok, user}
+    else
+      _ -> {:error, :missing_name}
+    end
+  end
+
+  defp demo(_user) do
+    {:error, :not_a_user}
   end
 end
 ```
