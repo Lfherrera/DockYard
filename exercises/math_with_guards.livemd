@@ -120,12 +120,32 @@ defmodule Math do
   ** (FunctionClauseError) no function clause matching in Math.add/2
   """
 
-  def add(value1, value2) do
-  end
+  def add(value1, value2) when is_number(value1) and is_number(value2), do: value1 + value2
+  def add(value1, value2) when is_list(value1) and is_list(value2), do: value1 ++ value2
+  def add(value1, value2) when is_bitstring(value1) and is_bitstring(value2), do: value1 <> value2
 
-  def subtract(value1, value2) do
+  def subtract(value1, value2) when is_number(value1) and is_number(value2), do: value1 - value2
+  def subtract(value1, value2) when is_list(value1) and is_list(value2), do: value1 -- value2
+
+  def subtract(value1, value2) when is_binary(value1) and is_binary(value2) do
+    #  v1 = String.graphemes(value1)
+    #  v2 = String.graphemes(value2)
+    #  j = v1 -- v2
+    #  Enum.join(j)
+
+    String.split(value1, "")
+    |> subtract(String.split(value2, ""))
+    |> Enum.join()
   end
 end
+
+Math.add(1, 1)
+Math.add([1, 5], [21, 31])
+Math.add("hello ", "there")
+
+Math.subtract(2, 1)
+Math.subtract([3, 2, 3], [3])
+Math.subtract("babc", "bc")
 ```
 
 ## Commit Your Progress

@@ -71,6 +71,10 @@ defmodule User do
     end)
   end
 
+  def validate_users(users) do
+    {:error, "Input needs to be a User strct"}
+  end
+
   defp check(%User{} = user) do
     with {:check_nil, true} <- {:check_nil, user.name != nil},
          {:length, true} <- {:length, String.length(user.name) > 1} do
@@ -98,6 +102,8 @@ defmodule User do
     {:error, :not_a_user}
   end
 end
+
+User.validate_users(%{ok: "test"})
 ```
 
 ## Commit Your Progress
