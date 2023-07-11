@@ -458,6 +458,10 @@ flowchart LR
 ```
 
 ```elixir
+
+```
+
+```elixir
 Stream.unfold(5, fn accumulator ->
   value = "value: #{accumulator}"
   next_accumulator = accumulator + 1

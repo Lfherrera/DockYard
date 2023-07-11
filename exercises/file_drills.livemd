@@ -41,19 +41,20 @@ This set of drills is for the [File](../reading/file.livemd) module. Follow the 
 Use [File.ls/1](https://hexdocs.pm/elixir/File.html#ls/1) to list all of the files/folders in the current path.
 
 ```elixir
-
+File.ls!()
 ```
 
 Use [File.ls/1](https://hexdocs.pm/elixir/File.html#ls/1) to list all of the files/folders in the parent directory of the current path.
 
 ```elixir
-
+Path.absname("exercises")
 ```
 
 Use [File.mkdir/1](https://hexdocs.pm/elixir/File.html#mkdir/1) to create a directory called `drills`.
 
 ```elixir
-
+path = Path.absname()
+# File.mkdir()
 ```
 
 Use [File.dir?/2](https://hexdocs.pm/elixir/File.html#dir?/2) to check that `drills` is a folder.
