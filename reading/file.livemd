@@ -122,6 +122,7 @@ We can create a file using [File.write/3](https://hexdocs.pm/elixir/File.html#wr
 
 ```elixir
 File.write("file.txt", "file content")
+Path.absname("file.txt")
 ```
 
 To prove we created the file, we can read the content using [File.read/1](https://hexdocs.pm/elixir/File.html#read/1).
@@ -157,7 +158,9 @@ DO NOT DELETE IMPORTANT FILES ON YOUR SYSTEM WHEN USING THE FILE MODULE
 </div>
 
 ```elixir
-
+File.write("Luis_Elixir_file", "Content of file 
+new line
+that it.. ")
 ```
 
 ## Path Module Functions
@@ -197,7 +200,7 @@ Path.join(path1, path2)
 Experiment with the functions above. Refer to the documentation for examples you can try.
 
 ```elixir
-
+File.mkdir("Elixir_files")
 ```
 
 ## Bang Functions
