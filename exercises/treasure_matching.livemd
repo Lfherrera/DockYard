@@ -199,6 +199,8 @@ defmodule Sum do
     end
   end
 end
+
+Sum.sum([13, 32, 23])
 ```
 
 ## Commit Your Progress
