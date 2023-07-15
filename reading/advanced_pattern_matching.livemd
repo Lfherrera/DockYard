@@ -255,7 +255,7 @@ end
 
 MultiClauseExample.run([]) |> IO.inspect(label: "first")
 MultiClauseExample.run([1]) |> IO.inspect(label: "second")
-MultiClauseExample.run([1, 1]) |> IO.inspect(label: "third")
+# MultiClauseExample.run([1, 1]) |> IO.inspect(label: "third")
 ```
 
 This is often used for advanced control flow.
@@ -268,9 +268,9 @@ We can also pattern match in multiple function heads in an anonymous callback fu
 
 ```elixir
 anonymous_run = fn
-  [] -> "1"
-  [_] -> "2"
-  [_, _] -> "3"
+  [] -> "anonymous func 1"
+  [_] -> "anonymous func 2"
+  [_, _] -> "anonymous func 3"
 end
 
 anonymous_run.([]) |> IO.inspect(label: "first")
@@ -305,12 +305,14 @@ defmodule Greeter do
   def hello(names) do
     case names do
       [_] -> "Hi #{names}!"
-      # [_,_] -> "Hi " <> List.first(names) <> ", Hello "<> List.last(names) <> "!"
+      [_, _] -> "Hi " <> List.first(names) <> ", Hello " <> List.last(names) <> "!"
       [_, _] -> "Hi #{Enum.at(names, 0)}, Hello #{Enum.at(names, 1)}!"
       [_, _, _] -> "Hello everyone!"
     end
   end
 end
+
+Greeter.hello(["Swamy", "Jeff"])
 ```
 
 ## Pattern Matching In Enumeration
