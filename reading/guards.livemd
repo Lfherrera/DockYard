@@ -164,6 +164,7 @@ defmodule PolymorphicGuardExample do
 end
 
 PolymorphicGuardExample.double("example")
+PolymorphicGuardExample.double(11)
 ```
 
 There are many guards available in Elixir. If you ever need a specific guard, you can refer to the [Guards](https://hexdocs.pm/elixir/Kernel.html#guards) documentation.
@@ -299,7 +300,7 @@ defmodule Percent do
   end
 end
 
-Percent.display(0)
+Percent.display(11)
 ```
 
 ## Further Reading

@@ -79,6 +79,8 @@ defmodule Replace do
     end)
   end
 end
+
+Replace.nils([nil, nil, nil, nil, "5"], [1, 2, 3, 4, 5])
 ```
 
 ```elixir
