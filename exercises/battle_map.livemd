@@ -99,7 +99,14 @@ end
 </details>
 
 ```elixir
-# Implementation Goes Here:
+defimpl Character, for: Barbarian do
+  def can_attack?(_character, {player_x, player_y}, {x, y}) do
+    diff_x = player_x - x
+    diff_y = player_y - y
+
+    abs(diff_x) <= 2 && abs(diff_y) <= 2
+  end
+end
 
 # You May Use The Following Test Suite To Validate Your Solution.
 ExUnit.start(auto_run: false)
@@ -162,7 +169,14 @@ end
 Create a `Wizard` implementation for the `Character` protocol.
 
 ```elixir
-# Implementation Goes Here:
+defimpl Character, for: Wizard do
+  def can_attack?(_character, {init_x, init_y}, {x, y}) do
+    x_diff = init_x - x
+    y_diff = init_y - y
+
+    init_x == x || init_y == y || abs(x_diff) == abs(y_diff)
+  end
+end
 
 # You May Use The Following Test Suite To Validate Your Solution.
 ExUnit.start(auto_run: false)
