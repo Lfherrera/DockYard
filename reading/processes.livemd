@@ -141,8 +141,8 @@ related to processes. We'll use the `alive?/1` function to show that the process
 
 ```elixir
 pid = spawn(fn -> IO.puts("I was called") end)
-
 Process.alive?(pid) && IO.puts("I am alive!")
+pid
 ```
 
 We can use [Process.sleep/1](https://hexdocs.pm/elixir/Process.html#sleep/1) to pause the execution and show that the spawned process dies

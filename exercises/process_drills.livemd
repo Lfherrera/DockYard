@@ -58,7 +58,7 @@ pid =
     end
   end)
 
-send(pid, {:message, "value"})
+send(pid, {:message, "value to be printed"})
 ```
 
 ## Process.spawn/2
@@ -66,7 +66,14 @@ send(pid, {:message, "value"})
 Use [Process.spawn/2](https://hexdocs.pm/elixir/Process.html#spawn/2) to spawn a new process which adds two integers together.
 
 ```elixir
-pid = spawn(fn -> 2 + 9 end)
+pid =
+  spawn(fn ->
+    receive do
+      {:add, int, int2} -> IO.puts(int + int2)
+    end
+  end)
+
+send(pid, {:add, 2, 4})
 ```
 
 Use [Process.spawn/2](https://hexdocs.pm/elixir/Process.html#spawn/2) and [Process.sleep/1](https://hexdocs.pm/elixir/Process.html#sleep/1) to spawn a process that sleeps for five seconds, then prints "Finished!".
@@ -74,9 +81,14 @@ Use [Process.spawn/2](https://hexdocs.pm/elixir/Process.html#spawn/2) and [Proce
 ```elixir
 p1 =
   spawn(fn ->
-    Process.sleep(5000)
-    IO.puts("Finished")
+    receive do
+      1 ->
+        Process.sleep(5000)
+        IO.puts("Finished")
+    end
   end)
+
+send(p1, 1)
 ```
 
 Use [Process.spawn/2](https://hexdocs.pm/elixir/Process.html#spawn/2) and [receive](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#receive/1) to spawn a process that receives a `:message` message. Use [Process.send/3](https://hexdocs.pm/elixir/Process.html#send/3) to send the spawned process a `:message` message. The spawned process should print `"received a message!"`.
