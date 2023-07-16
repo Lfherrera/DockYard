@@ -140,6 +140,11 @@ defmodule CounterServer do
   end
 
   @impl true
+  def handle_cast(:decrement, state) do
+    {:noreply, state - 1}
+  end
+
+  @impl true
   def handle_call(:get_count, _from, state) do
     # `response` bound for sake of clarity.
     response = state
@@ -242,6 +247,10 @@ defmodule ClientExample do
     GenServer.cast(pid, :increment)
   end
 
+  def decrement(pid) do
+    GenServer.cast(pid, :decrement)
+  end
+
   def get_count(pid) do
     GenServer.call(pid, :get_count)
   end
@@ -256,6 +265,10 @@ defmodule ServerExample do
 
   def handle_cast(:increment, state) do
     {:noreply, state + 1}
+  end
+
+  def handle_cast(:decrement, state) do
+    {:noreply, state - 1}
   end
 
   def handle_call(:get_count, _from, state) do
@@ -389,7 +402,7 @@ defmodule SendingSelfExample do
 
   def handle_cast(:talking_to_myself, state) do
     Process.sleep(1000)
-    IO.puts("Talking to myself")
+    IO.puts("Talking to myself, sent via CAST")
     GenServer.cast(self(), :talking_to_myself)
     {:noreply, state}
   end
