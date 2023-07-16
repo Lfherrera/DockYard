@@ -52,10 +52,8 @@ list = [{1, 1}, {2, 2}, {3, 3}]
 sum =
   list
   |> Stream.map(fn {a, b} -> a + b end)
-  # |> Sream.map(fn {a, b} -> a + b end) 
+  # |> Sream.map(fn each -> Tuple.sum(each) end) 
   |> Enum.to_list()
-
-# IO.inspect(sum)
 ```
 
 ## Stream.filter/2
@@ -72,9 +70,8 @@ Use [Stream.filter/2](https://hexdocs.pm/elixir/Stream.html#filter/2) and [Enum.
 
 ```elixir
 Stream.filter(1..10, fn each ->
-  each
+  each > 5
 end)
-|> Enum.filter(&(&1 > 5))
 |> Enum.to_list()
 ```
 
@@ -131,7 +128,9 @@ end)
 Use [Stream.unfold/2](https://hexdocs.pm/elixir/Stream.html#unfold/2) and [Enum.take/2](https://hexdocs.pm/elixir/Enum.html#take/2) to generate a list of `5` integers as strings. `["1", "2", "3", "4", "5"]`.
 
 ```elixir
-Stream.unfold(1, fn int -> if int <= 5, do: {Integer.to_string(int), int + 1} end)
+Stream.unfold(1, fn int ->
+  if int <= 5, do: {Integer.to_string(int), int + 1}
+end)
 |> Enum.take(5)
 ```
 
@@ -139,8 +138,9 @@ Use [Stream.unfold/2](https://hexdocs.pm/elixir/Stream.html#unfold/2) and [Enum.
 
 ```elixir
 Stream.unfold(1, fn
-  10 -> nil
-  num -> {num / 2, num + 1}
+  # 10 -> nil
+  num ->
+    {num / 2, num + 1}
 end)
 |> Enum.take(10)
 

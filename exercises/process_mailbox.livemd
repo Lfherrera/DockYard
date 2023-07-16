@@ -139,8 +139,37 @@ defmodule Mailbox do
       "Hello!"
   """
   def loop(state \\ []) do
+    receive do
+      {:send, message} ->
+        IO.inspect(message)
+        loop([message | state])
+
+      {:read, pid} ->
+        case state do
+          [h | t] ->
+            send(pid, h)
+            loop(t)
+
+          [] ->
+            send(pid, :empty)
+            loop([])
+        end
+    end
   end
 end
+```
+
+```elixir
+Process.list()
+```
+
+```elixir
+ls = Process.list()
+ls |> Enum.each(fn x -> Process.exit(x, :kill) end)
+```
+
+```elixir
+send(mailbox_process, {:send, "You've got mail!"})
 ```
 
 ## Commit Your Progress

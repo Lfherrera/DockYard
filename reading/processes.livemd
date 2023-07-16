@@ -375,6 +375,23 @@ Try evaluating the cell below over and over again. Notice that the counter value
 We now have stateful processes!
 
 ```elixir
+ receive do
+      {:send, message} ->
+        IO.inspect(message)
+        loop([message | state])
+
+      {:read, from_pid} ->
+        case state do
+          [head | tail] ->
+            send(from_pid, head)
+            loop(tail)
+
+          [] ->
+            send(from_pid, :empty)
+            loop([])
+```
+
+```elixir
 send(counter_process, :increment)
 ```
 
