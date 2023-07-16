@@ -90,9 +90,8 @@ Stream.cycle([1, 2, 3])
 Use [Stream.cycle/1](https://hexdocs.pm/elixir/Stream.html#cycle/1) with [Enum.take/2](https://hexdocs.pm/elixir/Enum.html#take/2) to generate the list `["a", "b", "a", "b"]`
 
 ```elixir
-# Stream.cycle(["a","b"])
-# |> Stream.chunk_by(2)
-# |> Enum.take(2)
+Stream.cycle(["a", "b"])
+|> Enum.take(4)
 ```
 
 ## Stream.iterate/2

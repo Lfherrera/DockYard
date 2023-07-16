@@ -299,14 +299,20 @@ We also have access to equivalent functions such as `with_index/1`, `drop/2`, `c
 We've used pattern matching here to demonstrate each has similar behavior.
 
 ```elixir
-[{"a", 0}, {"b", 1}, {"c", 2}] = Enum.with_index(["a", "b", "c"])
-[{"a", 0}, {"b", 1}, {"c", 2}] = Stream.with_index(["a", "b", "c"]) |> Enum.to_list()
+# [{"a", 0}, {"b", 1}, {"c", 2}] = 
+Enum.with_index(["a", "b", "c"])
+# [{"a", 0}, {"b", 1}, {"c", 2}] = 
+Stream.with_index(["a", "b", "c"]) |> Enum.to_list()
 
-["b", "c"] = Enum.drop(["a", "b", "c"], 1)
-["b", "c"] = Stream.drop(["a", "b", "c"], 1) |> Enum.to_list()
+# ["b", "c"] = 
+Enum.drop(["a", "b", "c"], 1)
+# ["b", "c"] = 
+Stream.drop(["a", "b", "c"], 1) |> Enum.to_list()
 
-[[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]] = Enum.chunk_every(1..10, 2)
-[[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]] = Stream.chunk_every(1..10, 2) |> Enum.to_list()
+# [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]] = 
+Enum.chunk_every(1..10, 2)
+# [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]] = 
+Stream.chunk_every(1..10, 2) |> Enum.to_list()
 ```
 
 ### Streams As Generators
@@ -325,7 +331,7 @@ flowchart LR
 Here's that shown using [Stream.cycle/2](https://hexdocs.pm/elixir/Stream.html#cycle/2), which cycles through an enumerable.
 
 ```elixir
-Stream.cycle([1, 2, 3])
+Stream.cycle([1, 2, 3, "luis"])
 |> Enum.take(10)
 ```
 
@@ -443,6 +449,7 @@ Stream.iterate(starting_integer, fn int ->
     int * 3 + 1
   end
 end)
+# |> Enum.take(20)
 |> Enum.take_while(fn result -> result != 4 end)
 ```
 
