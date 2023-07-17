@@ -129,6 +129,10 @@ Here's a simple `CounterServer` [GenServer](https://hexdocs.pm/elixir/GenServer.
 defmodule CounterServer do
   use GenServer
 
+  def increment() do
+    GenServer.call()
+  end
+
   @impl true
   def init(_init_arg) do
     {:ok, 0}
@@ -136,11 +140,13 @@ defmodule CounterServer do
 
   @impl true
   def handle_cast(:increment, state) do
+    IO.puts("Increasing count")
     {:noreply, state + 1}
   end
 
   @impl true
   def handle_cast(:decrement, state) do
+    IO.puts("Decreasing count")
     {:noreply, state - 1}
   end
 
@@ -158,6 +164,9 @@ Using the GenServer above, here's an example of sending an asynchronous message 
 ```elixir
 {:ok, pid} = GenServer.start_link(CounterServer, [])
 GenServer.cast(pid, :increment)
+GenServer.cast(pid, :increment)
+GenServer.call(pid, :get_count)
+GenServer.cast(pid, :decrement)
 GenServer.call(pid, :get_count)
 ```
 
@@ -225,6 +234,7 @@ defmodule ClientServerExample do
   end
 
   def handle_cast(:increment, state) do
+    IO.puts("Increasing count")
     {:noreply, state + 1}
   end
 
@@ -238,6 +248,7 @@ end
 Some projects will split the client and the server module when they get large enough. If we split the modules then we can't use `__MODULE__` to refer to the server module from the client module.
 
 ```elixir
+# just a normal 
 defmodule ClientExample do
   def start_link(_opts) do
     GenServer.start_link(ServerExample, [])
@@ -264,10 +275,12 @@ defmodule ServerExample do
   end
 
   def handle_cast(:increment, state) do
+    IO.puts("Increasing count")
     {:noreply, state + 1}
   end
 
   def handle_cast(:decrement, state) do
+    IO.puts("Decreasing count")
     {:noreply, state - 1}
   end
 
@@ -276,6 +289,14 @@ defmodule ServerExample do
     {:reply, response, state}
   end
 end
+```
+
+```elixir
+{:ok, pid} = GenServer.start_link(ServerExample, [])
+ClientExample.increment(pid)
+ClientExample.increment(pid)
+ClientExample.decrement(pid)
+:sys.get_state(pid)
 ```
 
 ## Synchronous Vs Asynchronous
@@ -308,14 +329,14 @@ defmodule SlowCounter do
   end
 
   def handle_call(:slow_increment, _from, state) do
-    Process.sleep(2000)
-    IO.puts("Finished Synch Increment")
+    Process.sleep(4000)
+    IO.puts("Finished (handle_call) Synch Increment")
     {:reply, state + 1, state + 1}
   end
 
   def handle_cast(:slow_increment, state) do
     Process.sleep(2000)
-    IO.puts("Finished Asynch Increment")
+    IO.puts("Finished (handle_cast) Asynch Increment")
     {:noreply, state + 1}
   end
 end
@@ -445,6 +466,10 @@ defmodule NamedCounter do
   def handle_cast(:increment, state) do
     {:noreply, state + 1}
   end
+
+  def handle_cast(:decrement, state) do
+    {:noreply, state - 1}
+  end
 end
 ```
 
@@ -460,6 +485,13 @@ Most GenServer related functions accept the named process name instead of a `pid
 
 ```elixir
 GenServer.cast(NamedCounter, :increment)
+```
+
+```elixir
+GenServer.cast(NamedCounter, :decrement)
+```
+
+```elixir
 :sys.get_state(NamedCounter)
 ```
 
