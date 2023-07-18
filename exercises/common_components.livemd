@@ -53,6 +53,31 @@ Create an `.html` document or use [CodePen](https://codepen.io/pen/) to create t
 
 ## Hoverable Outline Button
 
+```elixir
+# comment
+<!DOCTYPE html>
+</body>
+</html><html>
+  <head>
+    <button>Click Me!
+    <style>
+      button {
+        background-color: white;
+        font-size: 40px;
+        border: 5px solid orange;
+        border-radius: 60px;
+        padding: 10px;
+      }
+      button:hover {
+  		background-color: orange; cursor: pointer
+		}
+    </style>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
 Replicate the following outlined button as closely as you can.
 
 <!-- livebook:{"break_markdown":true} -->
@@ -82,6 +107,69 @@ Research `padding`, `margin`, `background-color`, and `border` and consider usin
 
 ![](images/rainbow_component.png)
 
+```elixir
+<!DOCTYPE html>
+</body>
+
+</html>
+<html>
+
+<head>
+        <style>
+			.purple{
+            padding: 1rem;
+            background-color: purple
+            }
+            .blue{
+            padding: 1rem;
+            background-color: blue
+            }
+            .green{
+            padding: 1rem;
+            background-color: green
+            }
+            .yellow{
+            padding: 1rem;
+            background-color: yellow
+            }
+            .orange{
+            padding: 1rem;
+            background-color: orange
+            }
+            .red{
+            padding: 1rem;
+            background-color: red
+            }
+            .white{
+            padding: 1rem;
+            background-color: white;
+            text-align: center;
+            font-size: 150%;
+            text-shadow: 3px 2px red;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="purple">
+        <div class="blue">
+            <div class="green">
+                <div class="yellow">
+                    <div class="orange">
+                        <div class="red">
+                            <div class="white">All the colors of the Rainbow!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+```
+
 ## Card Component
 
 Components like the following are often called **Card Components**. Create a card component matching the following with an image, heading, subtitle, body, and bottom bar decoration.
@@ -104,6 +192,51 @@ You can create a horizontal bar using either the `<hr></hr>` element, or an empt
 <!-- livebook:{"break_markdown":true} -->
 
 ![](images/card_component_light_mode.png)
+
+```elixir
+<!DOCTYPE html>
+<html>
+<style>
+    .head {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .tail {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .body {
+        border-style: solid;
+        border-width: medium;
+        height: 400px;
+        width: 200px;
+        border-radius: 0px 25px;
+    }
+
+    .mainbody {
+        text-align: center;
+    }
+
+    .image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px 23px 0px 0px;
+    }
+</style>
+
+<body class="body">
+
+    <img class="image" <img src="https://picsum.photos/200/100"></img>
+    <div class="head">Card Heading</div>
+    <div class="tail">Card Heading</div>
+    <div class="mainbody">Body of the letter goes here</div>
+</body>
+
+</html>
+```
 
 ## Commit Your Progress
 

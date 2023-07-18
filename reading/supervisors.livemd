@@ -179,7 +179,9 @@ children = [
 
 ### Your Turn
 
-<!-- livebook:{"break_markdown":true} -->
+```elixir
+# Supervisor.which_children() # this get's info on children/ worker
+```
 
 Here, we've used the livebook-exclusive [Kino.Process.sup_tree/2](https://hexdocs.pm/kino/Kino.Process.html#sup_tree/2) function to create a visualization of the above supervision tree.
 
@@ -462,7 +464,7 @@ children = [
 Uncomment the following code to see the crash timeline, then re-comment it.
 
 ```elixir
-# Supervisor.start_link(children, strategy: :one_for_one)
+Supervisor.start_link(children, strategy: :one_for_one)
 ```
 
 ## Further Reading

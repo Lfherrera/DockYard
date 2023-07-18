@@ -143,6 +143,16 @@ end
 ```
 
 ```elixir
+x = 10
+
+if x > 4 do
+  :greater
+else
+  :less
+end
+```
+
+```elixir
 t = Enum.random(5..100) |> IO.inspect()
 if t > 50, do: :hot, else: :cold
 
@@ -186,6 +196,14 @@ flowchart
 <!-- livebook:{"break_markdown":true} -->
 
 We can simplify our programs by reducing the number of branching decisions and leveraging different control flow structures.
+
+```elixir
+unless Enum.sum([3, 4]) == 3 do
+  "3 + 5 does not equal 3"
+else
+  "does equal 3"
+end
+```
 
 ## Case
 
@@ -311,6 +329,7 @@ case condition do
   :red -> 1
   "blue" -> 2
   %{key: "value"} -> 3
+  %{red: "value"} -> 3
   123 -> 4
   [1, 2, 3] -> 5
   _ -> "default"
@@ -469,6 +488,7 @@ cond do
   is_integer(value) -> "value is an integer"
   value >= 11 and value <= 15 -> "will never hit second condition"
   value > 5 -> "value is above 5"
+  true -> "default"
 end
 ```
 

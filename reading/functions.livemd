@@ -540,7 +540,8 @@ Enter your solution below.
 ```elixir
 call_with_10_and_20 = fn callback -> callback.(10, 20) end
 # needed two params 
-new_high_order_fun = fn num, num2 -> num * 2 + num2 * 2 end
+# new_high_order_fun = fn num, num2 -> num * 2 + num2 * 2 end
+new_high_order_fun = fn num, num2 -> num + num2 end
 # new_high_order_fun = fn num -> num * 2 end
 
 call_with_10_and_20.(new_high_order_fun)
@@ -660,7 +661,8 @@ add = fn num, num2 -> num + num2 end
 subtract = fn num, num2 -> num - num2 end
 multiply = fn num, num2 -> num * num2 end
 
-10 |> add.(2) |> multiply.(5) |> subtract.(4)
+# 10 |> add.(2) |> multiply.(5) |> subtract.(4)
+10 |> subtract.(5) |> multiply.(4) |> add.(3)
 ```
 
 ## Commit Your Progress
