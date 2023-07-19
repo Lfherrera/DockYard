@@ -152,8 +152,10 @@ It's important to understand cURL because most APIs include documentation using 
 Here, we use the [System](https://hexdocs.pm/elixir/System.html) module to simulate running a curl request from your command line and print the response for the sake of example. Notice it returns the HTML document of https://www.example.com.
 
 ```elixir
-{response, _exit_status} = System.cmd("curl", ["https://www.example.com"])
+# {response, _exit_status} = System.cmd("curl", ["https://www.google.com"])
+{response, _exit_status} = System.cmd("curl", ["https://chandlerlibrary.org"])
 
+# https://chandlerlibrary.org/
 IO.puts(response)
 ```
 
@@ -329,7 +331,9 @@ decoded_body = Jason.decode!(response.body)
 Now we can work with the decoded body like any Elixir map. For example we can access the "joke" field.
 
 ```elixir
-decoded_body["joke"]
+joke = decoded_body["delivery"]
+setup = decoded_body["setup"]
+IO.inspect("#{setup} , #{joke}")
 ```
 
 ## Building A Finch Request
@@ -385,7 +389,7 @@ url = "https://api.openai.com/v1/images/generations"
 
 headers = [
   {"Content-Type", "application/json"},
-  {"Authorization", "Bearer $OPENAI_API_TOKEN"}
+  {"Authorization", "Bearer $OPEN_API_TOKEN"}
 ]
 
 body =
