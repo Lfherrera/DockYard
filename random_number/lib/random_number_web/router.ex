@@ -1,4 +1,5 @@
 defmodule RandomNumberWeb.Router do
+  alias RandomNumberWeb.ProjectController
   use RandomNumberWeb, :router
 
   pipeline :browser do
@@ -19,6 +20,9 @@ defmodule RandomNumberWeb.Router do
 
     get "/", PageController, :home
     get "/random", RandomNumberController, :random
+    post "/random", RandomNumberController, :add_to_random
+    get "/about", AboutController, :about
+
 
   end
 

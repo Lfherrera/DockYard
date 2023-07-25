@@ -276,7 +276,8 @@ Finch.start_link(name: MyApp.Finch)
 Once the Finch process has started, to make a request we build the request information in a `Finch.Request` struct using [Finch.build/5](https://hexdocs.pm/finch/0.16.0/Finch.html#build/5).
 
 ```elixir
-request = Finch.build(:get, "https://www.example.com")
+# request = Finch.build(:get, "https://www.example.com")
+request = Finch.build(:get, "https://pokeapi.co/api/v2/stat/5/")
 ```
 
 Then we provide this struct to the [Finch.request/3](https://hexdocs.pm/finch/0.16.0/Finch.html#request/3) function using the name of the Finch process to send the request.

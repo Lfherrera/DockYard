@@ -3,7 +3,7 @@ defmodule HelloWorld2Web.PageController do
 
   def home(conn, _params) do
     # The home page is often custom made,
-    render(conn, :home, layout: false)
+    render(conn, :home)
     # so skip the default app layout.
   end
 end

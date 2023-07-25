@@ -1,26 +1,28 @@
-<h1 class="text-4xl">Random number is: <%=  @random %></h1>
+<h1 class="text-4xl">Random number is: <%= @random %></h1>
+
 <a href={"/random?random=#{@random}"}>Click to make random number</a>
 
-<%!-- <.link
-  navigate={~p"/?random=#{@random + 1}"}
-  class="bg-cyan-500 hover:bg-cyan-400 text-2xl p-4 mt-4 rounded-full inline-block"
->
-  Increment
-</.link> --%>
 
+<%!-- the "assigns" keyword will have access to any fields on controller, safer way to 
+access fields so pay wont crash
 
-<%!-- <.form :let={f} for={%{}} action={~p"/"}>
-  <.input type="number" field={f[:increment_by]} value={10} />
-  <.input type="hidden" field={f[:count]} value={@random} />
-  <.button class="mt-2">Increment</.button>
-</.form> --%>
-
+<h1 class="text-4xl">Random number is: <%= assigns.random %></h1>
+ --%>
 <p>
-<%= if @random > 50 do %>
+  <%= if assigns.random > 50 do %>
     The Random Count less than 50!
-<% end %>
+  <% end %>
 </p>
 
-<%!-- <%= for int <- 1..10 do %>
- <p> Increasing Integers: <%= int %></p>
- <% end %> --%>
+<%!-- notes on forms
+  :let{f} is a staruct, form input data, data can be saved and worked with 
+  for={%{}} desc change set 
+  action{~p"/"}  is url where sending request
+--%>
+<.form :let={f} for={%{}} action={~p"/random"}>
+  <.input type="number" field={f[:increment_by]} value={0} />
+  <%!-- <.input type="number" field={f[:cur_random]} value={@random} /> --%>
+  <.input type="hidden" field={f[:cur_random]} value={@random} />
+  <.button class="mt-2">Add to Random Number</.button>
+</.form>
+
