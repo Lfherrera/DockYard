@@ -40,7 +40,9 @@ Your solution does not have to match this example UI as long as it has the requi
 
 ![](images/blog_post_search_mock.png)
 
-<!-- livebook:{"break_markdown":true} -->
+```elixir
+
+```
 
 ### Requirements
 
